@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class EquipmentScreenHandlerFactory implements NamedScreenHandlerFactory {
 
-    public static final Text TITLE = Text.translatable("container" + Underwater.MOD_ID + ".equipment_screen");
+    public static final Text TITLE = Text.translatable("container." + Underwater.MOD_ID + ".equipment_screen");
 
     @Override
     public Text getDisplayName() {

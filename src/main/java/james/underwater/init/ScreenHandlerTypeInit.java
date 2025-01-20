@@ -2,7 +2,6 @@ package james.underwater.init;
 
 import james.underwater.EquipmentScreenHandler;
 import james.underwater.Underwater;
-import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandler;

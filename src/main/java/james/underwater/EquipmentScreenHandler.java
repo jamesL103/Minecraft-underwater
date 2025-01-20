@@ -3,11 +3,8 @@ package james.underwater;
 import james.underwater.init.ScreenHandlerTypeInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
 
 public class EquipmentScreenHandler extends ScreenHandler {
 

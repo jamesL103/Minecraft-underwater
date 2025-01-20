@@ -4,6 +4,7 @@ import james.underwater.EquipmentScreenHandler;
 import james.underwater.Underwater;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -21,7 +22,7 @@ public class EquipmentScreen extends HandledScreen<EquipmentScreenHandler> {
     //draws the background of the screen
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        context.drawTexture(null,TEXTURE, this.x, this.y, 0,  0, this.backgroundWidth, this.backgroundHeight, 176, 166);
+        context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, this.x, this.y, 0,  0, this.backgroundWidth, this.backgroundHeight, 256, 256);
     }
 
     @Override

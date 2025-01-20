@@ -1,5 +1,6 @@
 package james.underwater;
 
+import james.underwater.init.NetworkInit;
 import james.underwater.init.ScreenHandlerTypeInit;
 import net.fabricmc.api.ModInitializer;
 
@@ -28,5 +29,6 @@ public class Underwater implements ModInitializer {
 		// Proceed with mild caution.
 
 		ScreenHandlerTypeInit.load();
+		NetworkInit.load();
 	}
 }
