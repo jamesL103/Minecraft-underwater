@@ -1,5 +1,6 @@
 package james.underwater;
 
+import james.underwater.inventory.PlayerEquipmentData;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.NamedScreenHandlerFactory;

@@ -1,6 +1,8 @@
 package james.underwater;
 
+import james.underwater.init.NetworkInit;
 import james.underwater.init.ScreenHandlerTypeInit;
+import james.underwater.inventory.PlayerEquipmentData;
 import james.underwater.network.OpenMenuPayload;
 import james.underwater.screens.EquipmentScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -9,13 +11,13 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.Text;
 
 public class UnderwaterClient implements ClientModInitializer {
 
 	//opens the equipment menu
 	public static final KeyBinding OPEN_MENU = KeyBindingHelper.registerKeyBinding(Keybinds.OPEN_MENU);
+
+	public static PlayerEquipmentData equipmentData = new PlayerEquipmentData();
 
 	@Override
 	public void onInitializeClient() {
@@ -31,5 +33,7 @@ public class UnderwaterClient implements ClientModInitializer {
 		});
 
 		HandledScreens.register(ScreenHandlerTypeInit.EQUIPMENT_SCREEN_HANDLER, EquipmentScreen::new);
+
+		NetworkInit.load();
 	}
 }

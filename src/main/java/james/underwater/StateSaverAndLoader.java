@@ -1,5 +1,6 @@
 package james.underwater;
 
+import james.underwater.inventory.PlayerEquipmentData;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -18,6 +19,7 @@ import java.util.UUID;
  */
 public class StateSaverAndLoader extends PersistentState  {
 
+    //map of players to their equipment data
     public HashMap<UUID, PlayerEquipmentData> players = new HashMap<>();
 
     @Override
@@ -31,8 +33,11 @@ public class StateSaverAndLoader extends PersistentState  {
             //iterate over every slot and put the item identifier as string in the individual's nbt
             for(int slot = 0; slot <PlayerEquipmentData.EQUIPMENT_SLOTS; slot ++) {
                 ItemStack equipmentStack = playerEData.equipment.get(slot);
-                NbtElement itemStackNbt = equipmentStack.toNbt(registries);
-                playersNbt.put(String.valueOf(slot), itemStackNbt);
+                if (!(equipmentStack.isEmpty())) {
+                    NbtElement itemStackNbt = equipmentStack.toNbt(registries);
+                    playerEquipNbt.put(String.valueOf(slot), itemStackNbt);
+                }
+
             }
 
             playersNbt.put(uuid.toString(), playerEquipNbt);
@@ -50,21 +55,24 @@ public class StateSaverAndLoader extends PersistentState  {
         NbtCompound playersNbt = tag.getCompound("players");
 
         //load every equipment set for each player
-        playersNbt.getKeys().forEach(key ->{
+        playersNbt.getKeys().forEach(uuid ->{
            PlayerEquipmentData data = new PlayerEquipmentData();
 
-           NbtCompound playerEquipNbt = playersNbt.getCompound(key);
+           NbtCompound playerEquipNbt = playersNbt.getCompound(uuid);
 
            //load each item into the correct slot
            for (int slot = 0; slot < PlayerEquipmentData.EQUIPMENT_SLOTS; slot ++) {
                 NbtElement itemStackNbt = playerEquipNbt.get(String.valueOf(slot));
-                ItemStack equipmentStack = ItemStack.fromNbt(registryLookup, itemStackNbt).orElse(ItemStack.EMPTY);
-                data.equipment.set(slot, equipmentStack);
+                if (itemStackNbt == null) {
+                    data.equipment.set(slot, ItemStack.EMPTY);
+                } else {
+                    ItemStack equipmentStack = ItemStack.fromNbt(registryLookup, itemStackNbt).orElse(ItemStack.EMPTY);
+                    data.equipment.set(slot, equipmentStack);
+                }
            }
 
            //add the unique player's entry to the hashmap of players
-           UUID uuid = UUID.fromString(key);
-           state.players.put(uuid, data);
+           state.players.put(UUID.fromString(uuid), data);
         });
 
         return state;
@@ -80,6 +88,7 @@ public class StateSaverAndLoader extends PersistentState  {
     public static StateSaverAndLoader getServerState(MinecraftServer server) {
         PersistentStateManager persistentStateManager = server.getWorld(World.OVERWORLD).getPersistentStateManager();
 
+
         StateSaverAndLoader state = persistentStateManager.getOrCreate(type, Underwater.MOD_ID);
 
         state.markDirty();
@@ -89,7 +98,8 @@ public class StateSaverAndLoader extends PersistentState  {
 
     //gets a living entity (player) and returns the PlayerEquipmentData associated with it
     public static PlayerEquipmentData getPlayerState(LivingEntity player) {
-        StateSaverAndLoader serverState = getServerState(player.getWorld().getServer());
+        MinecraftServer server = player.getServer();
+        StateSaverAndLoader serverState = getServerState(server);
 
         //return the player data by uuid, or create their data if it doesn't exist yet
         return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerEquipmentData());

@@ -86,6 +86,7 @@ public class PlayerEquipmentData implements Inventory {
         equipment.clear();
     }
 
+    //writes the inventory contents to the specified NbtCompound
     public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
         Inventories.writeNbt(nbt, equipment, registries);
         return nbt;
