@@ -19,6 +19,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
+        translationBuilder.add("item.underwater.basic_tank", "Basic Tank");
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
     }
 

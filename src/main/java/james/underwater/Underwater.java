@@ -1,9 +1,11 @@
 package james.underwater;
 
+import james.underwater.init.ItemInit;
 import james.underwater.init.NetworkInit;
 import james.underwater.init.ScreenHandlerTypeInit;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.item.Item;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -30,5 +32,6 @@ public class Underwater implements ModInitializer {
 
 		ScreenHandlerTypeInit.load();
 		NetworkInit.load();
+		ItemInit.load();
 	}
 }

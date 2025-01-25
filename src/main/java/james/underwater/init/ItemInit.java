@@ -1,0 +1,23 @@
+package james.underwater.init;
+
+import james.underwater.Underwater;
+import james.underwater.item.BasicOxygenTank;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+
+public class ItemInit {
+
+    public static final RegistryKey<Item> BASIC_TANK_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("basic_tank"));
+    public static final BasicOxygenTank BASIC_TANK = Registry.register(Registries.ITEM, Underwater.id("basic_tank"), new BasicOxygenTank(new Item.Settings().registryKey(BASIC_TANK_KEY)));
+
+
+    public static void load() {
+
+    }
+
+
+}
+

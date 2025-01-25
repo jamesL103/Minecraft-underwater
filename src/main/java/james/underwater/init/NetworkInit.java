@@ -3,7 +3,6 @@ package james.underwater.init;
 import james.underwater.EquipmentScreenHandlerFactory;
 import james.underwater.inventory.PlayerEquipmentData;
 import james.underwater.StateSaverAndLoader;
-import james.underwater.Underwater;
 import james.underwater.network.OpenMenuPayload;
 import james.underwater.network.SyncEquipmentPayload;
 import net.fabricmc.fabric.api.networking.v1.*;
@@ -12,7 +11,6 @@ import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
-import net.minecraft.util.Identifier;
 
 public class NetworkInit {
 
@@ -26,14 +24,6 @@ public class NetworkInit {
         }
     });
 
-    public static final Identifier EQUIPMENT_SYNC = Underwater.id("equipment_sync");
-
-
-
-
-//    public static <T extends CustomPayload, B extends PacketByteBuf> CustomPayload.Type<B, T> register (CustomPayload.Id<T> id, PacketCodec<B, T> codec) {
-//        return PayloadTypeRegistry.playC2S().register(id, codec);
-//    }
 
     public static void load() {
         ServerPlayConnectionEvents.JOIN.register(new ServerPlayConnectionEvents.Join() {
