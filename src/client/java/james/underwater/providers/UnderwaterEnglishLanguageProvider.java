@@ -2,6 +2,7 @@ package james.underwater.providers;
 
 import james.underwater.EquipmentScreenHandlerFactory;
 import james.underwater.Underwater;
+import james.underwater.item.BasicFlipperItem;
 import james.underwater.item.BasicOxygenTank;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -21,6 +22,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add("item.underwater." + BasicOxygenTank.ID, "Basic Tank");
+        translationBuilder.add("item.underwater." + BasicFlipperItem.ID, "Basic Flippers");
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
     }
 

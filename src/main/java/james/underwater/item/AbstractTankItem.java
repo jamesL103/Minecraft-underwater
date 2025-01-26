@@ -1,7 +1,6 @@
 package james.underwater.item;
 
 import james.underwater.inventory.PlayerEquipmentData;
-import net.minecraft.component.type.AttributeModifiersComponent;
 
 public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
 
@@ -15,7 +14,6 @@ public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
     }
 
     private static void applySettings(Settings settings, int airTime) {
-
     }
 
 
