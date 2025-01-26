@@ -10,8 +10,8 @@ import net.minecraft.registry.RegistryKeys;
 
 public class ItemInit {
 
-    public static final RegistryKey<Item> BASIC_TANK_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("basic_tank"));
-    public static final BasicOxygenTank BASIC_TANK = Registry.register(Registries.ITEM, Underwater.id("basic_tank"), new BasicOxygenTank(new Item.Settings().registryKey(BASIC_TANK_KEY)));
+    public static final RegistryKey<Item> BASIC_TANK_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicOxygenTank.ID));
+    public static final BasicOxygenTank BASIC_TANK = Registry.register(Registries.ITEM, Underwater.id(BasicOxygenTank.ID), new BasicOxygenTank(new Item.Settings().registryKey(BASIC_TANK_KEY)));
 
 
     public static void load() {
