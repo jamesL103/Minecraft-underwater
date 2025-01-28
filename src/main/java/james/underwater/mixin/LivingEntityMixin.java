@@ -45,6 +45,17 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         }
     }
 
+    @Inject(at = @At("HEAD"), method = "getNextAirOnLand")
+    private void getNextAirOnLand(int air, CallbackInfoReturnable<Integer> cir) {
+        LivingEntity targetInstance = (LivingEntity)(Object)this;
+        if (targetInstance instanceof PlayerEntity player) {
+            OxygenTimeStatus status = PLAYER_OXYGEN.get(player.getUuid());
+            if (status != null) {
+                status.incrementAir(4);
+            }
+        }
+    }
+
 }
 
 

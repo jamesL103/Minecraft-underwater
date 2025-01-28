@@ -2,11 +2,13 @@ package james.underwater;
 
 import james.underwater.inventory.PlayerEquipmentData;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateManager;
 import net.minecraft.world.World;
@@ -102,7 +104,7 @@ public class StateSaverAndLoader extends PersistentState  {
         StateSaverAndLoader serverState = getServerState(server);
 
         //return the player data by uuid, or create their data if it doesn't exist yet
-        return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerEquipmentData());
+        return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerEquipmentData((PlayerEntity)player));
     }
 
 }

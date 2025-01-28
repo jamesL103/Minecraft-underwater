@@ -17,12 +17,19 @@ public class PlayerEquipmentData implements Inventory {
 
     public DefaultedList<ItemStack> equipment = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
 
+    private final PlayerEntity PLAYER;
+
     public final static int HEAD_SLOT = 0;
     public final static int BODY_SLOT = 1;
     public final static int FOOT_SLOT = 2;
     public final static int TANK_SLOT = 3;
     public final static int RARM_SLOT = 4;
     public final static int LARM_SLOT = 5;
+
+    public PlayerEquipmentData(PlayerEntity player) {
+        super();
+        PLAYER = player;
+    }
 
     @Override
     public int size() {

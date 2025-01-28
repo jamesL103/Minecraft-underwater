@@ -9,7 +9,7 @@ import net.minecraft.screen.slot.Slot;
  */
 public class EquipmentSlot extends Slot {
 
-    private final PlayerEquipmentData inventory;
+    protected final PlayerEquipmentData inventory;
 
     public EquipmentSlot(PlayerEquipmentData inventory, int index, int x, int y) {
         super(inventory, index, x, y);
