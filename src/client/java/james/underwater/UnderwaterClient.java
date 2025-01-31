@@ -19,7 +19,7 @@ public class UnderwaterClient implements ClientModInitializer {
 	//opens the equipment menu
 	public static final KeyBinding OPEN_MENU = KeyBindingHelper.registerKeyBinding(Keybinds.OPEN_MENU);
 
-	public static PlayerEquipmentData equipmentData = new PlayerEquipmentData(MinecraftClient.getInstance().player);
+	public static PlayerEquipmentData equipmentData = new PlayerEquipmentData();
 
 	@Override
 	public void onInitializeClient() {

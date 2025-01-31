@@ -9,9 +9,9 @@ public class TankSlot extends EquipmentSlot {
         super(inventory, index, x, y);
     }
 
-    @Override
-    public void setStackNoCallbacks(ItemStack item) {
-        super.setStackNoCallbacks(item);
-        super.inventory.
-    }
+//    @Override
+//    public void setStackNoCallbacks(ItemStack item) {
+//        super.setStackNoCallbacks(item);
+//        super.inventory.
+//    }
 }

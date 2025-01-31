@@ -104,7 +104,7 @@ public class StateSaverAndLoader extends PersistentState  {
         StateSaverAndLoader serverState = getServerState(server);
 
         //return the player data by uuid, or create their data if it doesn't exist yet
-        return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerEquipmentData((PlayerEntity)player));
+        return serverState.players.computeIfAbsent(player.getUuid(), uuid -> new PlayerEquipmentData());
     }
 
 }
