@@ -11,18 +11,20 @@ import java.util.List;
 public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
 
 
-    private static int airTime = 60;
+    //the max air time in seconds that can be stored
+    public final int MAX_AIR_TIME;
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        int currAir = stack.get(ComponentInit.TANK_AIR_COMPONENT);
-        tooltip.add(Text.translatable("item.underwater.tank.info", currAir));
+        if (stack.contains(ComponentInit.TANK_AIR_COMPONENT)) {
+            int currAir = stack.get(ComponentInit.TANK_AIR_COMPONENT)/20;
+            tooltip.add(Text.translatable("item.underwater.tank.info", currAir));
+        }
     }
 
     public AbstractTankItem(Settings settings, int airTime) {
         super(settings, PlayerEquipmentData.TANK_SLOT);
-        AbstractTankItem.airTime = airTime;
-
+        MAX_AIR_TIME = airTime;
     }
 
     private static void applySettings(Settings settings, int airTime) {
