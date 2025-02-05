@@ -11,7 +11,6 @@ import java.util.List;
 public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
 
 
-    //the max air time in seconds that can be stored
     public final int MAX_AIR_TIME;
 
     @Override
@@ -27,9 +26,10 @@ public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
         MAX_AIR_TIME = airTime;
     }
 
+
+
     private static void applySettings(Settings settings, int airTime) {
     }
-
 
 
 }

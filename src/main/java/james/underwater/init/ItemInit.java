@@ -16,7 +16,7 @@ public class ItemInit {
     public static final BasicOxygenTank BASIC_TANK = Registry.register(Registries.ITEM, Underwater.id(BasicOxygenTank.ID), new BasicOxygenTank(
             new Item.Settings()
                     .registryKey(BASIC_TANK_KEY)
-                    .component(ComponentInit.TANK_AIR_COMPONENT, BasicOxygenTank.getMaxAirTime() * 20)
+                    .component(ComponentInit.TANK_AIR_COMPONENT, 0)
     ));
 
     public static final RegistryKey<Item> BASIC_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicFlipperItem.ID));
