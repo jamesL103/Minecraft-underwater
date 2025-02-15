@@ -53,6 +53,8 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         }
     }
 
+    //todo: fix replenishment of oxygen tank
+    //getNextAirOnLand only called when entity oxygen < max
     @Inject(at = @At("HEAD"), method = "getNextAirOnLand")
     private void getNextAirOnLand(int air, CallbackInfoReturnable<Integer> cir) {
         LivingEntity targetInstance = (LivingEntity)(Object)this;
@@ -66,7 +68,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
                 AbstractTankItem tank = (AbstractTankItem)(tankStack.getItem());
                 //increment tank air if needed
                 if (airTime < tank.MAX_AIR_TIME) {
-                    tankStack.set(ComponentInit.TANK_AIR_COMPONENT, airTime + 1);
+                     tankStack.set(ComponentInit.TANK_AIR_COMPONENT, airTime + 1);
                 }
             }
         }
