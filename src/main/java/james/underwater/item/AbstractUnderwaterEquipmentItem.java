@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 
 public class AbstractUnderwaterEquipmentItem extends Item {
 
-    private static int SLOT;
+    private final int SLOT;
 
     public AbstractUnderwaterEquipmentItem(Settings settings, int slot) {
         super(applySettings(settings));

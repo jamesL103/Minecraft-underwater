@@ -37,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     private void getNextAirUnderwater(int air, CallbackInfoReturnable<Integer> cir) {
         //check if the entity is a player, and if they are listed as having an oxygen tank
         LivingEntity targetInstance = (LivingEntity)(Object)this;
-        if (targetInstance instanceof PlayerEntity player) {
+        if (targetInstance instanceof PlayerEntity player && !player.getWorld().isClient) {
             PlayerEquipmentData equipment = StateSaverAndLoader.getPlayerState(player);
             //check if player has a tank equipped
             ItemStack tankStack = equipment.getStack(PlayerEquipmentData.TANK_SLOT);
@@ -56,7 +56,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
     @Inject(at = @At("HEAD"), method = "getNextAirOnLand")
     private void getNextAirOnLand(int air, CallbackInfoReturnable<Integer> cir) {
         LivingEntity targetInstance = (LivingEntity)(Object)this;
-        if (targetInstance instanceof PlayerEntity player) {
+        if (targetInstance instanceof PlayerEntity player && !player.getWorld().isClient) {
 
             //check if oxygen tank is equipped
             PlayerEquipmentData equipment = StateSaverAndLoader.getPlayerState(player);
