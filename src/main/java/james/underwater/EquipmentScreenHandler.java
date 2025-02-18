@@ -75,4 +75,9 @@ public class EquipmentScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return true;
     }
+
+    @Override
+    public void onClosed(PlayerEntity player) {
+        inventory.onClose(player);
+    }
 }
