@@ -10,7 +10,9 @@ import java.util.List;
 
 public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
 
-
+    /**Max air time in seconds
+     *
+     */
     public final int MAX_AIR_TIME;
 
     @Override
