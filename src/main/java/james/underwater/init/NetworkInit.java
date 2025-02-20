@@ -6,11 +6,13 @@ import james.underwater.StateSaverAndLoader;
 import james.underwater.network.OpenMenuPayload;
 import james.underwater.network.SyncEquipmentPayload;
 import net.fabricmc.fabric.api.networking.v1.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 
 public class NetworkInit {
 
@@ -20,7 +22,12 @@ public class NetworkInit {
     public static final boolean OPEN_MENU_RECEIVER_OPENED = ServerPlayNetworking.registerGlobalReceiver(OpenMenuPayload.ID, new ServerPlayNetworking.PlayPayloadHandler<>() {
         @Override
         public void receive(OpenMenuPayload openMenuPayload, ServerPlayNetworking.Context context) {
-            context.player().openHandledScreen(new EquipmentScreenHandlerFactory());
+            ServerPlayerEntity player = context.player();
+            //sync player's equipment inventory
+            SyncEquipmentPayload equipmentSync = new SyncEquipmentPayload(StateSaverAndLoader.getPlayerState(player).writeNbt(new NbtCompound(), player.getRegistryManager()));
+            ServerPlayNetworking.send(player, equipmentSync);
+            //open equipment screen
+            player.openHandledScreen(new EquipmentScreenHandlerFactory());
         }
     });
 
