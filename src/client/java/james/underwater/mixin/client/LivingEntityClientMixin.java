@@ -28,7 +28,7 @@ public abstract class LivingEntityClientMixin extends Entity implements Attackab
     private void getNextAirUnderwater(int air, CallbackInfoReturnable<Integer> cir) {
         //check if the entity is a player, and if they are listed as having an oxygen tank
         LivingEntity targetInstance = (LivingEntity)(Object)this;
-        if (targetInstance instanceof PlayerEntity player) {
+        if (targetInstance instanceof PlayerEntity) {
             PlayerEquipmentData equipment = UnderwaterClient.equipmentData;
             //check if player has a tank equipped
             ItemStack tankStack = equipment.getStack(PlayerEquipmentData.TANK_SLOT);

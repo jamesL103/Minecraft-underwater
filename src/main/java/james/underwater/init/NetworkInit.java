@@ -6,7 +6,6 @@ import james.underwater.StateSaverAndLoader;
 import james.underwater.network.OpenMenuPayload;
 import james.underwater.network.SyncEquipmentPayload;
 import net.fabricmc.fabric.api.networking.v1.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.packet.CustomPayload;
