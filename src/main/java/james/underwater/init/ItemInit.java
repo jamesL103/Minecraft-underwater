@@ -3,6 +3,7 @@ package james.underwater.init;
 import james.underwater.Underwater;
 import james.underwater.item.BasicFlipperItem;
 import james.underwater.item.BasicOxygenTank;
+import james.underwater.item.SuperFlipperItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,6 +21,9 @@ public class ItemInit {
 
     public static final RegistryKey<Item> BASIC_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicFlipperItem.ID));
     public static final BasicFlipperItem BASIC_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(BasicFlipperItem.ID), new BasicFlipperItem(new Item.Settings().registryKey(BASIC_FLIPPER_KEY)));
+
+    public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipperItem.Id));
+    public static final SuperFlipperItem SUPER_FLIPPER_ITEM = Registry.register(Registries.ITEM, Underwater.id(SuperFlipperItem.Id), new SuperFlipperItem(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
 
     public static void load() {
 

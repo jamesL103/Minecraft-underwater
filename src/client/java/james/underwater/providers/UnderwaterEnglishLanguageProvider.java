@@ -4,6 +4,7 @@ import james.underwater.EquipmentScreenHandlerFactory;
 import james.underwater.Underwater;
 import james.underwater.item.BasicFlipperItem;
 import james.underwater.item.BasicOxygenTank;
+import james.underwater.item.SuperFlipperItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -23,6 +24,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add("item.underwater." + BasicOxygenTank.ID, "Basic Tank");
         translationBuilder.add("item.underwater." + BasicFlipperItem.ID, "Basic Flippers");
+        translationBuilder.add("item.underwater." + SuperFlipperItem.Id, "Super Flippers");
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
         translationBuilder.add("item.underwater.tank.info", "Storing %s seconds of air");
     }
