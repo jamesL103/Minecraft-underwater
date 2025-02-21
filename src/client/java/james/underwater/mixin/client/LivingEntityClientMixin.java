@@ -4,6 +4,7 @@ import james.underwater.StateSaverAndLoader;
 import james.underwater.UnderwaterClient;
 import james.underwater.init.ComponentInit;
 import james.underwater.inventory.PlayerEquipmentData;
+import james.underwater.item.AbstractFlipperItem;
 import james.underwater.item.AbstractTankItem;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Attackable;
@@ -18,8 +19,10 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityClientMixin extends Entity implements Attackable {
@@ -74,6 +77,27 @@ public abstract class LivingEntityClientMixin extends Entity implements Attackab
         }
     }
 
+    //modify arguments at line 2290 when velocity vector is multiplied by speed multipliers
+//    @ModifyArgs(at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/Vec3d;multiply(DDD)Lnet/minecraft/util/math/Vec3d;"), method = "travelInFluid")
+    @ModifyArgs(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;updateVelocity(FLnet/minecraft/util/math/Vec3d;)V"), method = "travelInFluid")
+    private void travelInFluid(Args args) {
+        //check if player
+        LivingEntity targetInstance = (LivingEntity) (Object) this;
+        if (targetInstance instanceof PlayerEntity) {
 
+            //check if fins are equipped
+            PlayerEquipmentData equipment = UnderwaterClient.equipmentData;
+            ItemStack finStack = equipment.getStack(PlayerEquipmentData.FOOT_SLOT);
+            if (!finStack.isEmpty()) {
+
+                float speedBoost = ((AbstractFlipperItem) finStack.getItem()).SPEED_BOOST;
+
+                //horizontal movement speed multiplier
+                float mult = args.get(0);
+
+                args.set(0, mult * (1 + speedBoost));
+            }
+        }
+    }
 
 }

@@ -1,11 +1,11 @@
 package james.underwater.item;
 
-fpublic class BasicFlipperItem extends AbstractFlipperItem {
+public class BasicFlipperItem extends AbstractFlipperItem {
 
     public static String ID = "basic_flipper";
 
     public BasicFlipperItem(Settings settings) {
-        super(settings, 2);
+        super(settings, 0.5F);
     }
 
 
