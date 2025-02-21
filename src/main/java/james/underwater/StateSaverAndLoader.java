@@ -2,13 +2,11 @@ package james.underwater;
 
 import james.underwater.inventory.PlayerEquipmentData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateManager;
 import net.minecraft.world.World;
@@ -22,7 +20,7 @@ import java.util.UUID;
 public class StateSaverAndLoader extends PersistentState  {
 
     //map of players to their equipment data
-    public HashMap<UUID, PlayerEquipmentData> players = new HashMap<>();
+    public final HashMap<UUID, PlayerEquipmentData> players = new HashMap<>();
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {

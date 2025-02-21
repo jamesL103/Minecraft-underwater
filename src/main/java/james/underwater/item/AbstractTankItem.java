@@ -29,9 +29,4 @@ public abstract class AbstractTankItem extends AbstractUnderwaterEquipmentItem {
     }
 
 
-
-    private static void applySettings(Settings settings, int airTime) {
-    }
-
-
 }

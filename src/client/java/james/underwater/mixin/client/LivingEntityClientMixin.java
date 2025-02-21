@@ -1,6 +1,5 @@
 package james.underwater.mixin.client;
 
-import james.underwater.StateSaverAndLoader;
 import james.underwater.UnderwaterClient;
 import james.underwater.init.ComponentInit;
 import james.underwater.inventory.PlayerEquipmentData;

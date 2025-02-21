@@ -5,8 +5,6 @@ import james.underwater.init.NetworkInit;
 import james.underwater.init.ScreenHandlerTypeInit;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.item.Item;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

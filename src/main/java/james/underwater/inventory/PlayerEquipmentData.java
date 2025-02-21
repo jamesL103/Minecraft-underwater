@@ -19,7 +19,7 @@ public class PlayerEquipmentData implements Inventory {
 
     public final static int EQUIPMENT_SLOTS = 6;
 
-    public DefaultedList<ItemStack> equipment = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
+    public final DefaultedList<ItemStack> equipment = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
 
     public final static int HEAD_SLOT = 0;
     public final static int BODY_SLOT = 1;
