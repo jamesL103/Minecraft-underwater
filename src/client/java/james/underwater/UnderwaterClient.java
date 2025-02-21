@@ -1,6 +1,7 @@
 package james.underwater;
 
 import james.underwater.init.NetworkInitClient;
+import james.underwater.init.RenderInit;
 import james.underwater.init.ScreenHandlerTypeInit;
 import james.underwater.inventory.PlayerEquipmentData;
 import james.underwater.network.OpenMenuPayload;
@@ -37,5 +38,6 @@ public class UnderwaterClient implements ClientModInitializer {
 		HandledScreens.register(ScreenHandlerTypeInit.EQUIPMENT_SCREEN_HANDLER, EquipmentScreen::new);
 
 		NetworkInitClient.load();
+		RenderInit.load();
 	}
 }
