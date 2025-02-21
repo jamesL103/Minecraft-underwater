@@ -9,4 +9,8 @@ public class BasicFlipperItem extends AbstractFlipperItem {
     }
 
 
+    @Override
+    public String getId() {
+        return ID;
+    }
 }

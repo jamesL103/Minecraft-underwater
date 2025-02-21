@@ -14,4 +14,8 @@ public class BasicOxygenTank extends AbstractTankItem {
     }
 
 
+    @Override
+    public String getId() {
+        return ID;
+    }
 }

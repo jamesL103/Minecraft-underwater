@@ -2,7 +2,7 @@ package james.underwater.item;
 
 import net.minecraft.item.Item;
 
-public class AbstractUnderwaterEquipmentItem extends Item {
+public abstract class AbstractUnderwaterEquipmentItem extends Item {
 
     private final int SLOT;
 
@@ -20,6 +20,8 @@ public class AbstractUnderwaterEquipmentItem extends Item {
         settings.maxCount(1);
         return settings;
     }
+
+    public abstract String getId();
 
 
 }

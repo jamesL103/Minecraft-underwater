@@ -2,7 +2,7 @@ package james.underwater.item;
 
 import james.underwater.inventory.PlayerEquipmentData;
 
-public class AbstractFlipperItem extends AbstractUnderwaterEquipmentItem{
+public abstract class AbstractFlipperItem extends AbstractUnderwaterEquipmentItem{
 
     private static int SPEED_BOOST;
 
