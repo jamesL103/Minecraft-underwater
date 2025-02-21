@@ -30,11 +30,10 @@ public class RenderInit {
 
                 //render oxygen counter
                 if (tankStack.contains(ComponentInit.TANK_AIR_COMPONENT)) {
-                    int oxygenX = tankX;
                     int oxygenY = tankY + 20;
 
                     int airTime = tankStack.get(ComponentInit.TANK_AIR_COMPONENT);
-                    drawContext.drawText(MinecraftClient.getInstance().textRenderer, "O2: " + (airTime/20) + "s", oxygenX, oxygenY, 0xFFFFFFFF, false);
+                    drawContext.drawText(MinecraftClient.getInstance().textRenderer, "O2: " + (airTime/20) + "s", tankX, oxygenY, 0xFFFFFFFF, false);
                 }
             }
         }));

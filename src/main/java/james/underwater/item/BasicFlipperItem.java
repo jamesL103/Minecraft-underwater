@@ -1,6 +1,6 @@
 package james.underwater.item;
 
-public class BasicFlipperItem extends AbstractFlipperItem {
+fpublic class BasicFlipperItem extends AbstractFlipperItem {
 
     public static String ID = "basic_flipper";
 

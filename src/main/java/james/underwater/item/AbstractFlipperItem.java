@@ -4,7 +4,7 @@ import james.underwater.inventory.PlayerEquipmentData;
 
 public abstract class AbstractFlipperItem extends AbstractUnderwaterEquipmentItem{
 
-    private static int SPEED_BOOST;
+    public final int SPEED_BOOST;
 
     public AbstractFlipperItem(Settings settings, int speedBoost) {
         super(settings, PlayerEquipmentData.FOOT_SLOT);
