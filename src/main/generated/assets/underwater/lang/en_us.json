@@ -2,5 +2,6 @@
   "container.underwater.equipment_screen": "Equipment",
   "item.underwater.basic_flipper": "Basic Flippers",
   "item.underwater.basic_tank": "Basic Tank",
-  "item.underwater.tank.info": "Storing %$ seconds of air"
+  "item.underwater.super_flipper": "Super Flippers",
+  "item.underwater.tank.info": "Storing %s seconds of air"
 }

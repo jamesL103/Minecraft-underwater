@@ -3,7 +3,8 @@
 	"package": "james.underwater.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"LivingEntityClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -7,7 +7,10 @@ import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.network.packet.CustomPayload;
 
-
+/**server payload used by the server to send a player's equipment data
+ *
+ * @param equipmentNbt the PlayerEquipmentData's Nbt
+ */
 public record SyncEquipmentPayload(NbtCompound equipmentNbt) implements CustomPayload {
 
     public static final Id<SyncEquipmentPayload> ID = new Id<>(Underwater.id("sync_equipment"));

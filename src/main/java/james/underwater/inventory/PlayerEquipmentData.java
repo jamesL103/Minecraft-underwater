@@ -1,11 +1,15 @@
 package james.underwater.inventory;
 
+import james.underwater.StateSaverAndLoader;
+import james.underwater.network.SyncEquipmentPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.collection.DefaultedList;
 
 /** Class containing the fields for individual player equipment data
@@ -15,7 +19,7 @@ public class PlayerEquipmentData implements Inventory {
 
     public final static int EQUIPMENT_SLOTS = 6;
 
-    public DefaultedList<ItemStack> equipment = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
+    public final DefaultedList<ItemStack> equipment = DefaultedList.ofSize(EQUIPMENT_SLOTS, ItemStack.EMPTY);
 
     public final static int HEAD_SLOT = 0;
     public final static int BODY_SLOT = 1;
@@ -78,6 +82,19 @@ public class PlayerEquipmentData implements Inventory {
     @Override
     public void markDirty() {
 
+    }
+
+    @Override
+    public void onClose(PlayerEntity player) {
+        if (!player.getWorld().isClient) {
+            //save the inventory data when equipment screen closes
+            StateSaverAndLoader serverState = StateSaverAndLoader.getServerState(player.getServer());
+            serverState.players.replace(player.getUuid(), this);
+            serverState.markDirty();
+
+            //send the updated inventory to the player
+            ServerPlayNetworking.send((ServerPlayerEntity) player, new SyncEquipmentPayload(writeNbt(new NbtCompound(), player.getRegistryManager())));
+        }
     }
 
     @Override
