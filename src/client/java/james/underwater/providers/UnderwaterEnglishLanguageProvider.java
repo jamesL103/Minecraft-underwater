@@ -27,6 +27,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add("item.underwater." + SuperFlipperItem.Id, "Super Flippers");
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
         translationBuilder.add("item.underwater.tank.info", "Storing %s seconds of air");
+        translationBuilder.add("generator.underwater.water_world", "Water World");
     }
 
     //helper to make Identifier out of Text and add it to datagen
