@@ -1,0 +1,15 @@
+
+# config for strata
+
+strata:
+  deepslate:
+    top: 7 #y level where deepslate starts replacing stone
+    bottom: -7
+  bedrock:
+    top: -60
+    bottom: -64
+
+palette-bottom:
+  - DEEPSLATE: $meta.yml:strata.deepslate.top
+  - BEDROCK: $meta.yml:strata.bedrock.top
+

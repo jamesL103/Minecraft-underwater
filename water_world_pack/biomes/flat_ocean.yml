@@ -2,6 +2,8 @@ id: FLAT_OCEAN
 
 type: BIOME
 
+extends: [ BASE, PALETTE_BASIC_OCEAN]
+
 vanilla: minecraft:ocean
 
 terrain:
@@ -9,14 +11,5 @@ terrain:
     type: LINEAR_HEIGHTMAP
     base: 48
 
-ocean:
-  level: 62
-  palette: BLOCK:minecraft:water
-
-palette:
-  - BLOCK:minecraft:sand: 320
-  - BLOCK:minecraft:sandstone: 44
-  - BLOCK:minecraft:stone: 42
-  - BLOCK:minecraft:bedrock: -64
 
 

@@ -1,0 +1,8 @@
+type: BIOME
+id: PALETTE_BASIC_OCEAN
+
+abstract: true
+
+palette:
+  - SAND: 320
+  - << meta.yml:palette-bottom
