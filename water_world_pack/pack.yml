@@ -15,4 +15,4 @@ generator: NOISE_3D
 
 biomes:
   type: SINGLE
-  biome: FLAT_OCEAN
+  biome: SHALLOWS
