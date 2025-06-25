@@ -5,10 +5,14 @@ extends: [BASE, PALETTE_BASIC_OCEAN]
 
 vanilla: underwater:warm_ocean
 
+features:
+  flora:
+    - SEAGRASS_FEATURE
+
 vars: &variables
   base: 50 #base y level
   groundHeight: 5 #block height of ground variation
-  hillHeight: 7
+  hillHeight: 8
 
 terrain:
   sampler:
@@ -21,7 +25,9 @@ terrain:
     type: EXPRESSION
     dimensions: 2
     variables: *variables
-    expression: (ground(x, z) + 1)/2 * groundHeight + (hills(x,z) + 1)/2 * hillHeight
+    expression:
+      (ground(x, z) + 1)/2 * groundHeight 
+      + (hills(x,z) + 1)/2 * hillHeight * ((hillHeightVar(x,z)/4)+0.75)
     samplers:
       ground:
         type: FBM
@@ -30,7 +36,26 @@ terrain:
           type: OPEN_SIMPLEX_2
           frequency: 0.008
       hills:
-        type: OPEN_SIMPLEX_2
+        type: DOMAIN_WARP
         dimensions: 2
-        frequency: 0.02
+        amplitude: 6
+        warp:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.01
+        sampler:
+          type: DOMAIN_WARP
+          amplitude: 6
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+      hillHeightVar:
+        type: FBM
+        dimensions: 2
+        octaves: 2
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.02
 

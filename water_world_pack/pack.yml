@@ -9,10 +9,19 @@ addons:
   palette-block-shortcut: 1.+
   config-biome: 1.+
   config-palette: 1.+
+  config-feature: 1.+
+  config-distributors: 1.+
+  config-locators: 1.+
   biome-provider-single: 1.+
+  generation-stage-feature: 1.+
+  structure-block-shortcut: 1.+
 
 generator: NOISE_3D
 
 biomes:
   type: SINGLE
   biome: SHALLOWS
+
+stages:
+  - id: flora
+    type: FEATURE
