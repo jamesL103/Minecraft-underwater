@@ -1,5 +1,6 @@
 {
   "container.underwater.equipment_screen": "Equipment",
+  "generator.terra.water_world/water_world": "Terra Water World",
   "generator.underwater.water_world": "Water World",
   "item.underwater.basic_flipper": "Basic Flippers",
   "item.underwater.basic_tank": "Basic Tank",

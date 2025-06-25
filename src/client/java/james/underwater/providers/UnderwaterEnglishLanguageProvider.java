@@ -28,6 +28,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
         translationBuilder.add("item.underwater.tank.info", "Storing %s seconds of air");
         translationBuilder.add("generator.underwater.water_world", "Water World");
+        translationBuilder.add("generator.terra.water_world/water_world", "Terra Water World");
     }
 
     //helper to make Identifier out of Text and add it to datagen
