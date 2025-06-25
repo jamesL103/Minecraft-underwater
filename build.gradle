@@ -92,3 +92,14 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+
+tasks.register('copyTerraPack', Copy) {
+	group = 'fabric'
+	description = 'copy the terra underwater world pack into the packs directory'
+	from 'water_world_pack'
+	into 'run/config/Terra/packs/water_world_pack'
+}
+
+tasks.named('runClient') {
+	dependsOn tasks.named('copyTerraPack')
+}
