@@ -3,20 +3,34 @@ type: BIOME
 
 extends: [BASE, PALETTE_BASIC_OCEAN]
 
-vanilla: minecraft:warm_ocean
+vanilla: underwater:warm_ocean
+
+vars: &variables
+  base: 50 #base y level
+  groundHeight: 5 #block height of ground variation
+  hillHeight: 7
 
 terrain:
   sampler:
     type: EXPRESSION
     dimensions: 3
-    expression: -y + 54
+    variables: *variables
+    expression: -y + base
 
   sampler-2d:
     type: EXPRESSION
     dimensions: 2
-    expression: simplex(x, z) * 2
+    variables: *variables
+    expression: (ground(x, z) + 1)/2 * groundHeight + (hills(x,z) + 1)/2 * hillHeight
     samplers:
-      simplex:
+      ground:
+        type: FBM
+        dimensions: 2
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.008
+      hills:
         type: OPEN_SIMPLEX_2
         dimensions: 2
-        frequency: 0.04
+        frequency: 0.02
+
