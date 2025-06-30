@@ -12,7 +12,7 @@ carving:
     type: EXPRESSION
     variables:
 
-      carvingThreshold: 0.57
+      carvingThreshold: 0.55
       carvingMinHeight: 50
       carvingMaxHeight: 60
       carvingCap: 1

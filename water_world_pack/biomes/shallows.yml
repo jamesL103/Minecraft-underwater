@@ -51,7 +51,7 @@ terrain:
             frequency: 0.01
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.01
+            frequency: 0.05
       hillHeightVar:
         type: FBM
         dimensions: 2
