@@ -1,0 +1,32 @@
+id: ARCH_CARVING
+type: BIOME
+abstract: true
+
+features:
+  fill_caves:
+    - FILL_CAVES
+
+carving:
+  sampler:
+    dimensions: 3
+    type: EXPRESSION
+    variables:
+
+      carvingThreshold: 0.57
+      carvingMinHeight: 50
+      carvingMaxHeight: 60
+      carvingCap: 1
+
+      spaghettiStrengthLarge: 0.59
+      spaghettiStrengthSmall: 0.57
+
+    expression:
+      -carvingThreshold
+      + if(y<carvingMinHeight||y>carvingMaxHeight, 0,
+        min(carvingCap,
+          max(
+            spaghettiStrengthLarge * ((-(|arches(x,y+0000,z)|+|arches(x,y+1000,z)|)/2)+1),
+            spaghettiStrengthSmall * ((-(|arches(x,y+2000,z)|+|arches(x,y+3000,z)|)/2)+1)
+          )
+        )
+      )

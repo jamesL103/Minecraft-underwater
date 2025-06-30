@@ -1,0 +1,21 @@
+id: FILL_CAVES
+type: FEATURE
+
+
+distributor:
+  type: "YES"
+
+locator:
+  type: PATTERN
+  range: &range
+    min: 0
+    max: 62
+  pattern:
+    type: MATCH
+    block: minecraft:air
+    offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: BLOCK:minecraft:water

@@ -23,5 +23,16 @@ biomes:
   biome: SHALLOWS
 
 stages:
+  - id: fill_caves
+    type: FEATURE
   - id: flora
     type: FEATURE
+
+samplers:
+  arches:
+    dimensions: 3
+    type: FBM
+    octaves: 4
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.0075

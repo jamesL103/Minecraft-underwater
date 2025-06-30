@@ -1,7 +1,7 @@
 id: SHALLOWS
 type: BIOME
 
-extends: [BASE, PALETTE_BASIC_OCEAN]
+extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING]
 
 vanilla: underwater:warm_ocean
 
@@ -10,7 +10,7 @@ features:
     - SEAGRASS_FEATURE
 
 vars: &variables
-  base: 50 #base y level
+  base: 48 #base y level
   groundHeight: 5 #block height of ground variation
   hillHeight: 8
 
@@ -28,6 +28,7 @@ terrain:
     expression:
       (ground(x, z) + 1)/2 * groundHeight 
       + (hills(x,z) + 1)/2 * hillHeight * ((hillHeightVar(x,z)/4)+0.75)
+      + (piles(x,z) + 1)
     samplers:
       ground:
         type: FBM
@@ -58,4 +59,13 @@ terrain:
         sampler:
           type: OPEN_SIMPLEX_2
           frequency: 0.02
+      piles:
+        type: FBM
+        dimensions: 2
+        octaves: 4
+        gain: 0.5
+        lacunarity: 2
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.03
 
