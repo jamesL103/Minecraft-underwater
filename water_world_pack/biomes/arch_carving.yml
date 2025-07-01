@@ -3,7 +3,7 @@ type: BIOME
 abstract: true
 
 features:
-  fill_caves:
+  preprocessors:
     - FILL_CAVES
 
 carving:
@@ -14,15 +14,16 @@ carving:
 
       carvingThreshold: 0.55
       carvingMinHeight: 50
-      carvingMaxHeight: 60
+      minHeightVariation: 4
+      carvingMaxHeight: 62
       carvingCap: 1
 
       spaghettiStrengthLarge: 0.59
       spaghettiStrengthSmall: 0.57
 
-    expression:
+    expression: # using arches sampler defined in pack.yml
       -carvingThreshold
-      + if(y<carvingMinHeight||y>carvingMaxHeight, 0,
+      + if(y<(carvingMinHeight + (minHeightVariation * ((minHeightOffset(x,z)/4) - 0.75)))||y>carvingMaxHeight, 0,
         min(carvingCap,
           max(
             spaghettiStrengthLarge * ((-(|arches(x,y+0000,z)|+|arches(x,y+1000,z)|)/2)+1),
@@ -30,3 +31,14 @@ carving:
           )
         )
       )
+
+    samplers:
+      minHeightOffset:
+        dimensions: 2
+        type: FBM
+        octaves: 3
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.1
+
+

@@ -23,7 +23,9 @@ biomes:
   biome: SHALLOWS
 
 stages:
-  - id: fill_caves
+  - id: preprocessors
+    type: FEATURE
+  - id: fillTerrain
     type: FEATURE
   - id: flora
     type: FEATURE
