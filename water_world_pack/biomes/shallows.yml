@@ -6,13 +6,18 @@ extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING]
 vanilla: underwater:warm_ocean
 
 features:
+  fillTerrain:
+    - PLACE_SAND
   flora:
     - SEAGRASS_FEATURE
 
+palette:
+  - SANDSTONE: 319
+
 vars: &variables
-  base: 48 #base y level
+  base: 50 #base y level
   groundHeight: 5 #block height of ground variation
-  hillHeight: 8
+  hillHeight: 7
 
 terrain:
   sampler:

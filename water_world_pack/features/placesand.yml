@@ -1,0 +1,41 @@
+id: PLACE_SAND
+type: FEATURE
+
+distributor:
+  type: "YES"
+
+locator:
+  type: AND
+  locators:
+  - type: PATTERN
+    range: &range
+      min: 20
+      max: 62
+    pattern:
+      type: MATCH
+      block: minecraft:sandstone
+      offset: 0
+  - type: AND
+    locators:
+      - type: PATTERN
+        range: *range
+        pattern:
+          type: MATCH
+          block: minecraft:sandstone
+          offset: -1
+      - type: PATTERN
+        range: *range
+        pattern:
+          type: OR
+          patterns:
+            - type: MATCH
+              block: minecraft:water
+              offset: 1
+            - type: MATCH # bad hack: this will probably cause problems later
+              block: minecraft:water
+              offset: 2
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: BLOCK:minecraft:sand
