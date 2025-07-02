@@ -1,5 +1,6 @@
 package james.underwater;
 
+import james.underwater.init.BlockInit;
 import james.underwater.init.ItemInit;
 import james.underwater.init.NetworkInit;
 import james.underwater.init.ScreenHandlerTypeInit;
@@ -31,5 +32,6 @@ public class Underwater implements ModInitializer {
 		ScreenHandlerTypeInit.load();
 		NetworkInit.load();
 		ItemInit.load();
+		BlockInit.load();
 	}
 }
