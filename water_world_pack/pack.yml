@@ -13,14 +13,61 @@ addons:
   config-distributors: 1.+
   config-locators: 1.+
   biome-provider-single: 1.+
+  biome-provider-pipeline-v2: 1.+
   generation-stage-feature: 1.+
   structure-block-shortcut: 1.+
 
 generator: NOISE_3D
 
 biomes:
-  type: SINGLE
-  biome: SHALLOWS
+  type: PIPELINE
+  biome: 4
+  blend:
+    amplitude: 2
+    sampler:
+    type: OPEN_SIMPLEX_2
+    frequency: 0.1
+  pipeline:
+    source:
+      type: SAMPLER
+      sampler:
+        dimensions: 2
+        type: OPEN_SIMPLEX_2
+        frequency: 0.002
+      biomes:
+        - shallow: 3
+        - deep: 2
+    stages:
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.001
+        from: deep
+        to:
+          - SELF: 2
+          - deeper: 1
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.01
+        from: shallow
+        to:
+          - SHALLOWS: 1
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.01
+        from: deep
+        to:
+          - PLAINS: 1
+      - type: REPLACE
+        sampler:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.01
+        from: deeper
+        to:
+          - DEEP_PLAINS: 1
+
 
 stages:
   - id: preprocessors

@@ -1,0 +1,39 @@
+id: PLAINS
+type: BIOME
+extends: [BASE, PALETTE_BASIC_OCEAN]
+
+vanilla: minecraft:deep_ocean
+
+features:
+  preprocessors:
+    - FILL_CAVES
+  flora:
+    - SEAGRASS_FEATURE
+
+vars: &variables
+  base: 45
+  groundHeight: 5
+
+terrain:
+  sampler:
+    type: EXPRESSION
+    variables: *variables
+    expression: -y + base
+
+  sampler-2d:
+    type: EXPRESSION
+    variables: *variables
+    expression: ((ground(x,z) + 1)/2) * groundHeight
+    samplers:
+      ground:
+        type: DOMAIN_WARP
+        dimensions: 2
+        sampler:
+          type: FBM
+          dimensions: 2
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.03
+        warp:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.05
