@@ -1,9 +1,9 @@
 package james.underwater.init;
 
 import james.underwater.Underwater;
-import james.underwater.item.BasicFlipperItem;
+import james.underwater.item.BasicFlipper;
 import james.underwater.item.BasicOxygenTank;
-import james.underwater.item.SuperFlipperItem;
+import james.underwater.item.SuperFlipper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -31,11 +31,11 @@ public class ItemInit {
                     .component(ComponentInit.TANK_AIR_COMPONENT, BasicOxygenTank.BASIC_TANK_MAX_AIR * 20)
     ));
 
-    public static final RegistryKey<Item> BASIC_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicFlipperItem.ID));
-    public static final BasicFlipperItem BASIC_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(BasicFlipperItem.ID), new BasicFlipperItem(new Item.Settings().registryKey(BASIC_FLIPPER_KEY)));
+    public static final RegistryKey<Item> BASIC_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicFlipper.ID));
+    public static final BasicFlipper BASIC_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(BasicFlipper.ID), new BasicFlipper(new Item.Settings().registryKey(BASIC_FLIPPER_KEY)));
 
-    public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipperItem.Id));
-    public static final SuperFlipperItem SUPER_FLIPPER_ITEM = Registry.register(Registries.ITEM, Underwater.id(SuperFlipperItem.Id), new SuperFlipperItem(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
+    public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipper.ID));
+    public static final SuperFlipper SUPER_FLIPPER_ITEM = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
 
     public static void load() {
         Registry.register(Registries.ITEM_GROUP, UNDERWATER_ITEM_GROUP_KEY, UNDERWATER_ITEM_GROUP);
