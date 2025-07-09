@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "underwater:block/rock"
+    },
+    "waterlogged=true": {
+      "model": "underwater:block/rock"
+    }
+  }
+}

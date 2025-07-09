@@ -1,6 +1,7 @@
 package james.underwater.init;
 
 import james.underwater.Underwater;
+import james.underwater.block.SeaRock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -15,11 +16,13 @@ import java.util.function.Function;
 
 public class BlockInit {
 
-    public static final Block SEA_ROCK = register(
+    private static final boolean REGISTER_ITEM = true;
+
+    public static final Block ROCK = register(
             "rock",
-            Block::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE),
-            true
+            SeaRock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).noCollision(),
+            REGISTER_ITEM
     );
 
 
