@@ -21,9 +21,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.tick.ScheduledTickView;
-import org.jetbrains.annotations.Nullable;
 
 public class Rock extends Block implements Waterloggable {
 
