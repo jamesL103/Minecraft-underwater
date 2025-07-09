@@ -4,6 +4,7 @@
   "generator.underwater.water_world": "Water World",
   "item.underwater.basic_flipper": "Basic Flippers",
   "item.underwater.basic_tank": "Basic Tank",
+  "item.underwater.rock": "Rock",
   "item.underwater.super_flipper": "Super Flippers",
   "item.underwater.tank.info": "Storing %s seconds of air"
 }

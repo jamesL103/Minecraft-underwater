@@ -2,9 +2,11 @@ package james.underwater.providers;
 
 import james.underwater.EquipmentScreenHandlerFactory;
 import james.underwater.Underwater;
-import james.underwater.item.BasicFlipperItem;
+import james.underwater.init.BlockInit;
+import james.underwater.init.ItemInit;
+import james.underwater.item.BasicFlipper;
 import james.underwater.item.BasicOxygenTank;
-import james.underwater.item.SuperFlipperItem;
+import james.underwater.item.SuperFlipper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -22,13 +24,14 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add("item.underwater." + BasicOxygenTank.ID, "Basic Tank");
-        translationBuilder.add("item.underwater." + BasicFlipperItem.ID, "Basic Flippers");
-        translationBuilder.add("item.underwater." + SuperFlipperItem.Id, "Super Flippers");
+        translationBuilder.add(ItemInit.BASIC_TANK.getName().getString(), "Basic Tank");
+        translationBuilder.add("item.underwater." + BasicFlipper.ID, "Basic Flippers");
+        translationBuilder.add("item.underwater." + SuperFlipper.ID, "Super Flippers");
         addText(translationBuilder, EquipmentScreenHandlerFactory.TITLE, "Equipment");
         translationBuilder.add("item.underwater.tank.info", "Storing %s seconds of air");
         translationBuilder.add("generator.underwater.water_world", "Water World");
         translationBuilder.add("generator.terra.water_world/water_world", "Terra Water World");
+        translationBuilder.add(BlockInit.ROCK.asItem().getName().getString(), "Rock");
     }
 
     //helper to make Identifier out of Text and add it to datagen

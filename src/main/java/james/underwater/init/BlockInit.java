@@ -1,7 +1,7 @@
 package james.underwater.init;
 
 import james.underwater.Underwater;
-import james.underwater.block.SeaRock;
+import james.underwater.block.Rock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -19,9 +19,12 @@ public class BlockInit {
     private static final boolean REGISTER_ITEM = true;
 
     public static final Block ROCK = register(
-            "rock",
-            SeaRock::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).noCollision(),
+            Rock.ID,
+            Rock::new,
+            AbstractBlock.Settings.create().
+                    sounds(BlockSoundGroup.STONE)
+                    .noCollision()
+                    .hardness(1.5f),
             REGISTER_ITEM
     );
 
