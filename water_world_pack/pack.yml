@@ -30,22 +30,30 @@ biomes:
   pipeline:
     source:
       type: SAMPLER
+      biomes:
+        - deeper: 10
+        - deep: 20
+        - shallow: 32
       sampler:
         dimensions: 2
-        type: OPEN_SIMPLEX_2
-        frequency: 0.002
-      biomes:
-        - shallow: 3
-        - deep: 2
-    stages:
-      - type: REPLACE
+        type: LINEAR
+        min: -1
+        max: -0.3
         sampler:
-          type: OPEN_SIMPLEX_2
-          frequency: 0.001
-        from: deep
-        to:
-          - SELF: 2
-          - deeper: 1
+          type: DOMAIN_WARP
+          sampler:
+            type: FBM
+            octaves: 3
+            lacunarity: 2
+            gain: 0.4
+            sampler:
+              type: CELLULAR
+              frequency: 0.0008
+          amplitude: 2.0
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.02
+    stages:
       - type: REPLACE
         sampler:
           type: OPEN_SIMPLEX_2
