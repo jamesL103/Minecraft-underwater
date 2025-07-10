@@ -36,17 +36,23 @@ public class ItemInit {
     public static final BasicFlipper BASIC_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(BasicFlipper.ID), new BasicFlipper(new Item.Settings().registryKey(BASIC_FLIPPER_KEY)));
 
     public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipper.ID));
-    public static final SuperFlipper SUPER_FLIPPER_ITEM = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
+    public static final SuperFlipper SUPER_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
 
     public static final RegistryKey<Item> SHARPENED_ROCK_KEY = RegistryKey.of(Registries.ITEM.getKey(), Underwater.id(SharpenedRock.ID));
     public static final SharpenedRock SHARPENED_ROCK = Registry.register(Registries.ITEM, Underwater.id(SharpenedRock.ID), new SharpenedRock(new Item.Settings().registryKey(SHARPENED_ROCK_KEY).maxCount(1)));
+
+    public static final RegistryKey<Item> SEAGRASS_BLADES_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_blades"));
+    public static final Item SEAGRASS_BLADES = Registry.register(Registries.ITEM, Underwater.id("seagrass_blades"), new Item(new Item.Settings()
+            .registryKey(SEAGRASS_BLADES_KEY)
+    ));
 
     public static void load() {
         Registry.register(Registries.ITEM_GROUP, UNDERWATER_ITEM_GROUP_KEY, UNDERWATER_ITEM_GROUP);
         ItemGroupEvents.modifyEntriesEvent(UNDERWATER_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.add(BASIC_TANK);
             itemGroup.add(BASIC_FLIPPER);
-            itemGroup.add(SUPER_FLIPPER_ITEM);
+            itemGroup.add(SUPER_FLIPPER);
+            itemGroup.add(SHARPENED_ROCK);
         });
     }
 
