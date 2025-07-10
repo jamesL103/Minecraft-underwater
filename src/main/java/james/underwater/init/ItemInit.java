@@ -4,6 +4,7 @@ import james.underwater.Underwater;
 import james.underwater.item.BasicFlipper;
 import james.underwater.item.BasicOxygenTank;
 import james.underwater.item.SuperFlipper;
+import james.underwater.item.tools.SharpenedRock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
@@ -36,6 +37,9 @@ public class ItemInit {
 
     public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipper.ID));
     public static final SuperFlipper SUPER_FLIPPER_ITEM = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
+
+    public static final RegistryKey<Item> SHARPENED_ROCK_KEY = RegistryKey.of(Registries.ITEM.getKey(), Underwater.id(SharpenedRock.ID));
+    public static final SharpenedRock SHARPENED_ROCK = Registry.register(Registries.ITEM, Underwater.id(SharpenedRock.ID), new SharpenedRock(new Item.Settings().registryKey(SHARPENED_ROCK_KEY).maxCount(1)));
 
     public static void load() {
         Registry.register(Registries.ITEM_GROUP, UNDERWATER_ITEM_GROUP_KEY, UNDERWATER_ITEM_GROUP);
