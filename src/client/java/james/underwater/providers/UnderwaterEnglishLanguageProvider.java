@@ -5,7 +5,6 @@ import james.underwater.Underwater;
 import james.underwater.init.BlockInit;
 import james.underwater.init.ItemInit;
 import james.underwater.item.BasicFlipper;
-import james.underwater.item.BasicOxygenTank;
 import james.underwater.item.SuperFlipper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -32,6 +31,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add("generator.underwater.water_world", "Water World");
         translationBuilder.add("generator.terra.water_world/water_world", "Terra Water World");
         translationBuilder.add(BlockInit.ROCK.asItem().getName().getString(), "Rock");
+        translationBuilder.add(ItemInit.SHARPENED_ROCK.getName().getString(), "Sharpened Rock");
     }
 
     //helper to make Identifier out of Text and add it to datagen
