@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "underwater:rock",
+    "underwater:rock"
+  ],
+  "result": {
+    "count": 1,
+    "id": "underwater:rock"
+  }
+}
