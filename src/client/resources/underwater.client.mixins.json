@@ -3,6 +3,7 @@
 	"package": "james.underwater.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
+		"BackgroundRendererMixin",
 		"ExampleClientMixin",
 		"LivingEntityClientMixin"
 	],
