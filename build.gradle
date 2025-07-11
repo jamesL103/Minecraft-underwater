@@ -21,6 +21,8 @@ repositories {
 loom {
 	splitEnvironmentSourceSets()
 
+	setAccessWidenerPath(file("src/main/resources/underwater.accesswidener"))
+
 	mods {
 		"underwater" {
 			sourceSet sourceSets.main
