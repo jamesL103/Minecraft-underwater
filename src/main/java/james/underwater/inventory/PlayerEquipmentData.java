@@ -56,6 +56,10 @@ public class PlayerEquipmentData implements Inventory {
         }
     }
 
+    public boolean isSlotEmpty(int slot) {
+        return equipment.get(slot).isEmpty();
+    }
+
     @Override
     public ItemStack removeStack(int slot, int amount) {
         if (slot >= 0 && slot < EQUIPMENT_SLOTS) {

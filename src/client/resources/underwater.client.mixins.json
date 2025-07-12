@@ -5,7 +5,8 @@
 	"client": [
 		"BackgroundRendererMixin",
 		"ExampleClientMixin",
-		"LivingEntityClientMixin"
+		"LivingEntityClientMixin",
+		"ClientPlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

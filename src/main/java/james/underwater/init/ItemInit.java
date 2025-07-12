@@ -3,6 +3,7 @@ package james.underwater.init;
 import james.underwater.Underwater;
 import james.underwater.item.BasicFlipper;
 import james.underwater.item.BasicOxygenTank;
+import james.underwater.item.Goggles;
 import james.underwater.item.SuperFlipper;
 import james.underwater.item.tools.SharpenedRock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -14,6 +15,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
+
+import java.util.function.Function;
 
 public class ItemInit {
 
@@ -44,7 +47,16 @@ public class ItemInit {
             .registryKey(SEAGRASS_BLADES_KEY)
     ));
 
-    public static final RegistryKey<Item> SEAGRASS_SEEDS_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_seeds"));
+    public static final Item GOGGLES = registerItem(Goggles.ID, Goggles::new, new Item.Settings());
+
+
+
+
+    public static Item registerItem(String id, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+        RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(id));
+        Item item = itemFactory.apply(settings.registryKey(registryKey));
+        return Registry.register(Registries.ITEM, Underwater.id(id), item);
+    }
 
     public static void load() {
         Registry.register(Registries.ITEM_GROUP, UNDERWATER_ITEM_GROUP_KEY, UNDERWATER_ITEM_GROUP);
