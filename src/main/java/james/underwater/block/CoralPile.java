@@ -1,9 +1,6 @@
 package james.underwater.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Waterloggable;
+import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -13,6 +10,9 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
@@ -20,6 +20,14 @@ import org.jetbrains.annotations.Nullable;
 public class CoralPile extends Block implements Waterloggable {
 
     public static final String ID = "coral_pile";
+
+    public static final float MODEL_SIZE_X = 1;
+    public static final float MODEL_SIZE_Y = 1f/16;
+    public static final float MODEL_SIZE_Z = 1;
+    public static final float START_POS_X = 0;
+    public static final float START_POS_Y = 0;
+    public static final float START_POS_Z = 0;
+
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -60,5 +68,10 @@ public class CoralPile extends Block implements Waterloggable {
             tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+    }
+
+    @Override
+    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.cuboid(START_POS_X, START_POS_Y, START_POS_Z, START_POS_X + MODEL_SIZE_X, START_POS_Y + MODEL_SIZE_Y, START_POS_Z + MODEL_SIZE_Z);
     }
 }
