@@ -1,6 +1,7 @@
 package james.underwater.init;
 
 import james.underwater.Underwater;
+import james.underwater.block.CoralPile;
 import james.underwater.block.Rock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -17,6 +18,7 @@ import java.util.function.Function;
 public class BlockInit {
 
     private static final boolean REGISTER_ITEM = true;
+    private static final boolean NO_REGISTER_ITEM = false;
 
     public static final Block ROCK = register(
             Rock.ID,
@@ -25,6 +27,16 @@ public class BlockInit {
                     sounds(BlockSoundGroup.STONE)
                     .noCollision()
                     .hardness(1.5f),
+            REGISTER_ITEM
+    );
+
+    public static final Block CORAL_PILE = register(
+            CoralPile.ID,
+            CoralPile::new,
+            AbstractBlock.Settings.create()
+                    .noCollision()
+                    .breakInstantly()
+                    .nonOpaque(),
             REGISTER_ITEM
     );
 

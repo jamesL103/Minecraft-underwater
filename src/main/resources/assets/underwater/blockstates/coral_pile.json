@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=true": {
+      "model": "underwater:block/coral_pile"
+    },
+    "waterlogged=false": {
+      "model": "underwater:block/coral_pile"
+    }
+  }
+}

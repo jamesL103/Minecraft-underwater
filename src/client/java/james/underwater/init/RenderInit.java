@@ -4,6 +4,7 @@ import james.underwater.Underwater;
 import james.underwater.UnderwaterClient;
 import james.underwater.inventory.PlayerEquipmentData;
 import james.underwater.item.AbstractTankItem;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
@@ -37,6 +38,8 @@ public class RenderInit {
                 }
             }
         }));
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.CORAL_PILE, RenderLayer.getCutout());
 
     }
 

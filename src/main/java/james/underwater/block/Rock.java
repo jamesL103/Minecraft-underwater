@@ -90,6 +90,10 @@ public class Rock extends Block implements Waterloggable {
             } else {
                 return Blocks.AIR.getDefaultState();
             }
+        } else {
+            if (state.get(WATERLOGGED)) {
+                tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            }
         }
         return state;
     }
