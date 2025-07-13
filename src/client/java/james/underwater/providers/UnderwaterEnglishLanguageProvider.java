@@ -23,6 +23,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
+        translationBuilder.add(ItemInit.UNDERWATER_ITEM_GROUP_KEY.getValue().toTranslationKey(), "Underwater Items");
         translationBuilder.add(ItemInit.BASIC_TANK.getName().getString(), "Basic Tank");
         translationBuilder.add("item.underwater." + BasicFlipper.ID, "Basic Flippers");
         translationBuilder.add("item.underwater." + SuperFlipper.ID, "Super Flippers");
@@ -32,6 +33,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add("generator.terra.water_world/water_world", "Terra Water World");
         translationBuilder.add(BlockInit.ROCK.asItem().getName().getString(), "Rock");
         translationBuilder.add(ItemInit.SHARPENED_ROCK.getName().getString(), "Sharpened Rock");
+        translationBuilder.add(BlockInit.CORAL_PILE.asItem().getName().getString(), "Dead Coral Pile");
     }
 
     //helper to make Identifier out of Text and add it to datagen
