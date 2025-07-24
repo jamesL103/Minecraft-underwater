@@ -40,6 +40,16 @@ public class BlockInit {
             REGISTER_ITEM
     );
 
+    public static final Block REEDS = register(
+        "reeds",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS),
+            REGISTER_ITEM
+    );
+
 
     public static void load() {
 
