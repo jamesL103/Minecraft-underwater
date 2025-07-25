@@ -1,5 +1,6 @@
 package james.underwater;
 
+import james.underwater.providers.UnderwaterBlockLootProvider;
 import james.underwater.providers.UnderwaterEnglishLanguageProvider;
 import james.underwater.providers.UnderwaterModelGenerator;
 import james.underwater.providers.UnderwaterRecipeProvider;
@@ -14,5 +15,6 @@ public class UnderwaterDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(UnderwaterEnglishLanguageProvider::new);
 		pack.addProvider(UnderwaterRecipeProvider::new);
 		pack.addProvider(UnderwaterModelGenerator::new);
+		pack.addProvider(UnderwaterBlockLootProvider::new);
 	}
 }
