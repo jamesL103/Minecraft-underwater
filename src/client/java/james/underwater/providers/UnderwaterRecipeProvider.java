@@ -30,6 +30,10 @@ public class UnderwaterRecipeProvider extends FabricRecipeProvider {
                         .input(BlockInit.ROCK.asItem(), 2)
                         .criterion(hasItem(BlockInit.ROCK), conditionsFromItem(BlockInit.ROCK))
                         .offerTo(recipeExporter);
+                createShapeless(RecipeCategory.MISC, ItemInit.PLANT_FIBER)
+                        .input(ItemInit.SEAGRASS_BLADES, 3)
+                        .criterion(hasItem(ItemInit.SEAGRASS_BLADES), conditionsFromItem(ItemInit.SEAGRASS_BLADES))
+                        .offerTo(recipeExporter);
             }
         };
     }

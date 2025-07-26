@@ -21,6 +21,7 @@ public class UnderwaterModelGenerator extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ItemInit.BASIC_FLIPPER, Models.GENERATED);
-
+        itemModelGenerator.register(ItemInit.SEAGRASS_BLADES, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.PLANT_FIBER, Models.GENERATED);
     }
 }

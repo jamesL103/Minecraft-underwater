@@ -9,6 +9,7 @@ import james.underwater.item.tools.SharpenedRock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -45,9 +46,20 @@ public class ItemInit {
     public static final RegistryKey<Item> SEAGRASS_BLADES_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_blades"));
     public static final Item SEAGRASS_BLADES = Registry.register(Registries.ITEM, Underwater.id("seagrass_blades"), new Item(new Item.Settings()
             .registryKey(SEAGRASS_BLADES_KEY)
+            .food(new FoodComponent.Builder()
+                    .nutrition(1)
+                    .saturationModifier(2)
+                    .build()
+            )
     ));
 
     public static final Item GOGGLES = registerItem(Goggles.ID, Goggles::new, new Item.Settings());
+
+    public static final Item PLANT_FIBER = registerItem(
+            "plant_fiber",
+            Item::new,
+            new Item.Settings()
+    );
 
 
 
