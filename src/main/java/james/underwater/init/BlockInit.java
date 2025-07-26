@@ -2,6 +2,7 @@ package james.underwater.init;
 
 import james.underwater.Underwater;
 import james.underwater.block.CoralPile;
+import james.underwater.block.RaftBlock;
 import james.underwater.block.Rock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -47,6 +48,16 @@ public class BlockInit {
                     .noCollision()
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS),
+            REGISTER_ITEM
+    );
+
+    public static final Block RAFT_BLOCK = register(
+            RaftBlock.ID,
+            RaftBlock::new,
+            AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.WOOD)
+                    .nonOpaque()
+                    .solid(),
             REGISTER_ITEM
     );
 

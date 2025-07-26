@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=true": {
+      "model": "underwater:block/raft_block"
+    },
+    "waterlogged=false": {
+      "model": "underwater:block/raft_block"
+    }
+  }
+}

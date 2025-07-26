@@ -41,6 +41,7 @@ public class RenderInit {
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.CORAL_PILE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.REEDS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.RAFT_BLOCK, RenderLayer.getCutout());
 
     }
 
