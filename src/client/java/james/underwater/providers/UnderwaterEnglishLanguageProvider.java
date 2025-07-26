@@ -34,6 +34,8 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(BlockInit.ROCK.asItem().getName().getString(), "Rock");
         translationBuilder.add(ItemInit.SHARPENED_ROCK.getName().getString(), "Sharpened Rock");
         translationBuilder.add(BlockInit.CORAL_PILE.asItem().getName().getString(), "Dead Coral Pile");
+        translationBuilder.add(BlockInit.REEDS.asItem().getName().getString(), "Reeds");
+        translationBuilder.add(ItemInit.SEAGRASS_BLADES.getName().getString(), "Seagrass Blades");
     }
 
     //helper to make Identifier out of Text and add it to datagen
