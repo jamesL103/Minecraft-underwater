@@ -8,9 +8,7 @@ locator:
   type: AND
   locators:
   - type: PATTERN
-    range: &range
-      min: 20
-      max: 62
+    range: $meta.yml:sand_range
     pattern:
       type: MATCH
       block: minecraft:sandstone
@@ -18,13 +16,13 @@ locator:
   - type: AND
     locators:
       - type: PATTERN
-        range: *range
+        range: $meta.yml:sand_range
         pattern:
           type: MATCH
           block: minecraft:sandstone
           offset: -1
       - type: PATTERN
-        range: *range
+        range: $meta.yml:sand_range
         pattern:
           type: OR
           patterns:
