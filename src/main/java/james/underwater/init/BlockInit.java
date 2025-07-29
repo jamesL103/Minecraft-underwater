@@ -4,10 +4,12 @@ import james.underwater.Underwater;
 import james.underwater.block.CoralPile;
 import james.underwater.block.RaftBlock;
 import james.underwater.block.Rock;
+import james.underwater.block.item.RaftBlockItem;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.PlaceableOnWaterItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -51,15 +53,7 @@ public class BlockInit {
             REGISTER_ITEM
     );
 
-    public static final Block RAFT_BLOCK = register(
-            RaftBlock.ID,
-            RaftBlock::new,
-            AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.WOOD)
-                    .nonOpaque()
-                    .solid(),
-            REGISTER_ITEM
-    );
+    public static final Block RAFT_BLOCK = registerRaftBlock();
 
 
     public static void load() {
@@ -76,6 +70,22 @@ public class BlockInit {
             BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
             Registry.register(Registries.ITEM, itemKey, blockItem);
         }
+
+        return Registry.register(Registries.BLOCK, blockKey, block);
+    }
+
+    private static Block registerRaftBlock() {
+        RegistryKey<Block> blockKey = keyOfBlock(RaftBlock.ID);
+        AbstractBlock.Settings settings = AbstractBlock.Settings.create()
+                .registryKey(blockKey)
+                .sounds(BlockSoundGroup.WOOD)
+                .nonOpaque()
+                .solid();
+        RaftBlock block = new RaftBlock(settings);
+
+        RegistryKey<Item> itemKey = keyOfItem(RaftBlock.ID);
+        RaftBlockItem blockItem = new RaftBlockItem(block, new Item.Settings().registryKey(itemKey));
+        Registry.register(Registries.ITEM, itemKey, blockItem);
 
         return Registry.register(Registries.BLOCK, blockKey, block);
     }

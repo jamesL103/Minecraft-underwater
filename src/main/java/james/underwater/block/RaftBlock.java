@@ -1,5 +1,6 @@
 package james.underwater.block;
 
+import james.underwater.Underwater;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -73,11 +74,6 @@ public class RaftBlock extends Block {
             }
         }
         return state;
-    }
-
-    @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        return super.onUse(state, world, pos, player, hit);
     }
 
     @Override
