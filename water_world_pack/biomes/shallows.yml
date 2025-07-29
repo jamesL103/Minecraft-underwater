@@ -10,6 +10,8 @@ features:
     - PLACE_SAND
   flora:
     - SEAGRASS_FEATURE
+  decor:
+    - PLACE_ROCKS
 
 palette:
   - SANDSTONE: 319

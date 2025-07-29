@@ -84,6 +84,8 @@ stages:
     type: FEATURE
   - id: flora
     type: FEATURE
+  - id: decor
+    type: FEATURE
 
 samplers:
   arches:

@@ -1,0 +1,29 @@
+id: PLACE_ROCKS
+type: FEATURE
+
+distributor:
+  type: SAMPLER
+  sampler:
+    type: POSITIVE_WHITE_NOISE
+    salt: 3472534
+  threshold: 0.02
+
+locator:
+  type: AND
+  locators:
+    - type: PATTERN
+      range: $meta.yml:sand_range
+      pattern:
+        type: MATCH_SOLID
+        offset: -1
+    - type: PATTERN
+      range: $meta.yml:sand_range
+      pattern:
+        type: MATCH
+        block: minecraft:water
+        offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: BLOCK:underwater:rock[waterlogged=true]

@@ -13,3 +13,6 @@ palette-bottom:
   - DEEPSLATE: $meta.yml:strata.deepslate.top
   - BEDROCK: $meta.yml:strata.bedrock.top
 
+sand_range:
+  min: 20
+  max: 66
