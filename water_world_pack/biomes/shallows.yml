@@ -18,7 +18,7 @@ palette:
 
 vars: &variables
   base: 50 #base y level
-  groundHeight: 5 #block height of ground variation
+  groundHeight: 7 #block height of ground variation
   hillHeight: 7
 
 terrain:
