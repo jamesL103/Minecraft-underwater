@@ -24,7 +24,7 @@ public class ItemInit {
     public static final RegistryKey<ItemGroup> UNDERWATER_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Underwater.id("underwater_group"));
     public static final ItemGroup UNDERWATER_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(Items.WATER_BUCKET))
-            .displayName(Text.translatable("itemGroup.underwater.water_items"))
+            .displayName(Text.translatable(UNDERWATER_ITEM_GROUP_KEY.getValue().toTranslationKey()))
             .build();
 
     public static final RegistryKey<Item> BASIC_TANK_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(BasicOxygenTank.ID));
@@ -40,8 +40,7 @@ public class ItemInit {
     public static final RegistryKey<Item> SUPER_FLIPPER_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id(SuperFlipper.ID));
     public static final SuperFlipper SUPER_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
 
-    public static final RegistryKey<Item> SHARPENED_ROCK_KEY = RegistryKey.of(Registries.ITEM.getKey(), Underwater.id(SharpenedRock.ID));
-    public static final SharpenedRock SHARPENED_ROCK = Registry.register(Registries.ITEM, Underwater.id(SharpenedRock.ID), new SharpenedRock(new Item.Settings().registryKey(SHARPENED_ROCK_KEY).maxCount(1)));
+    public static final Item SHARPENED_ROCK = registerItem(SharpenedRock.ID, SharpenedRock::new, new Item.Settings());
 
     public static final RegistryKey<Item> SEAGRASS_BLADES_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_blades"));
     public static final Item SEAGRASS_BLADES = Registry.register(Registries.ITEM, Underwater.id("seagrass_blades"), new Item(new Item.Settings()

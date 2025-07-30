@@ -23,7 +23,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(ItemInit.UNDERWATER_ITEM_GROUP_KEY.getValue().toTranslationKey(), "Underwater Items");
+        translationBuilder.add(ItemInit.UNDERWATER_ITEM_GROUP_KEY.getValue().toTranslationKey(), "Water Items");
         translationBuilder.add(ItemInit.BASIC_TANK.getName().getString(), "Basic Tank");
         translationBuilder.add("item.underwater." + BasicFlipper.ID, "Basic Flippers");
         translationBuilder.add("item.underwater." + SuperFlipper.ID, "Super Flippers");
