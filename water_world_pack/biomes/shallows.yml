@@ -10,6 +10,7 @@ features:
     - PLACE_SAND
   flora:
     - SEAGRASS_FEATURE
+    - REEDS
   decor:
     - PLACE_ROCKS
 

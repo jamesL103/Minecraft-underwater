@@ -32,6 +32,8 @@ locator:
             - type: MATCH # bad hack: this will probably cause problems later
               block: minecraft:water
               offset: 2
+            - type: MATCH_AIR
+              offset: 1
 
 structures:
   distribution:
