@@ -6,6 +6,7 @@ import james.underwater.item.BasicOxygenTank;
 import james.underwater.item.Goggles;
 import james.underwater.item.SuperFlipper;
 import james.underwater.item.tools.SharpenedRock;
+import james.underwater.item.tools.StoneSpear;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
@@ -41,6 +42,8 @@ public class ItemInit {
     public static final SuperFlipper SUPER_FLIPPER = Registry.register(Registries.ITEM, Underwater.id(SuperFlipper.ID), new SuperFlipper(new Item.Settings().registryKey(SUPER_FLIPPER_KEY)));
 
     public static final Item SHARPENED_ROCK = registerItem(SharpenedRock.ID, SharpenedRock::new, new Item.Settings());
+
+    public static final Item STONE_SPEAR = registerItem(StoneSpear.ID, StoneSpear::new, new Item.Settings());
 
     public static final RegistryKey<Item> SEAGRASS_BLADES_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_blades"));
     public static final Item SEAGRASS_BLADES = Registry.register(Registries.ITEM, Underwater.id("seagrass_blades"), new Item(new Item.Settings()
