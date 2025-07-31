@@ -41,6 +41,21 @@ public class UnderwaterRecipeProvider extends FabricRecipeProvider {
                         .input('s', Items.STICK)
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                         .offerTo(recipeExporter);
+                createShaped(RecipeCategory.TOOLS, ItemInit.STONE_CHISEL, 1)
+                        .pattern("fr")
+                        .pattern("s ")
+                        .input('r', ItemInit.SHARPENED_ROCK)
+                        .input('s', Items.STICK)
+                        .input('f', ItemInit.PLANT_FIBER)
+                        .criterion(hasItem(ItemInit.SHARPENED_ROCK), conditionsFromItem(ItemInit.SHARPENED_ROCK))
+                        .offerTo(recipeExporter);
+                createShaped(RecipeCategory.TOOLS, ItemInit.STONE_SPEAR, 1)
+                        .pattern(" c")
+                        .pattern("s ")
+                        .input('c', ItemInit.STONE_CHISEL)
+                        .input('s', Items.STICK)
+                        .criterion(hasItem(ItemInit.SHARPENED_ROCK), conditionsFromItem(ItemInit.SHARPENED_ROCK))
+                        .offerTo(recipeExporter);
             }
         };
     }
