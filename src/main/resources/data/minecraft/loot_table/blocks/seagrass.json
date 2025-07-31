@@ -24,7 +24,7 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "items": "underwater:sharpened_rock"
+            "items": ["underwater:sharpened_rock", "underwater:stone_chisel"]
           }
         }
       ],
