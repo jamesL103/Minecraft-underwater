@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "has_resource=false": {
+      "model": "underwater:block/sandstone_flint_ore_depleted"
+    },
+    "has_resource=true": {
+      "model": "underwater:block/sandstone_flint_ore"
+    }
+  }
+}

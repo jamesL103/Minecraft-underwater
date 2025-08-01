@@ -4,9 +4,10 @@ import james.underwater.item.tools.StoneChisel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -16,16 +17,20 @@ import net.minecraft.world.World;
 
 public abstract class AbstractSandstoneOreBlock extends Block {
 
-    public static final IntProperty STORED_RESOURCE = IntProperty.of("stored_resource", 0, 1);
+    public static final BooleanProperty HAS_RESOURCE = BooleanProperty.of("has_resource");
 
     public AbstractSandstoneOreBlock(Settings settings) {
-        super(settings);
-        setDefaultState(getDefaultState().with(STORED_RESOURCE, 1));
+        super(
+                settings
+                        .solid()
+                        .hardness(0.8f)
+        );
+        setDefaultState(getDefaultState().with(HAS_RESOURCE, true));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(STORED_RESOURCE);
+        builder.add(HAS_RESOURCE);
     }
 
     @Override
@@ -37,19 +42,18 @@ public abstract class AbstractSandstoneOreBlock extends Block {
             return  ActionResult.PASS;
         }
 
-        int resourceLeft = state.get(STORED_RESOURCE);
-        if (resourceLeft < 1) {
+        if (!state.get(HAS_RESOURCE)) {
             return ActionResult.FAIL;
         }
 
-        world.setBlockState(pos, state.with(STORED_RESOURCE, resourceLeft - 1));
-        dropStack(world, pos, new ItemStack(getResource(), getDropCount(state)));
+        if (world.isClient()) {
+            return ActionResult.PASS;
+        }
+        world.setBlockState(pos, state.with(HAS_RESOURCE, false));
+        dropStack(world, pos, getChiselResource(state, (ServerWorld) world, pos));
         return ActionResult.SUCCESS;
     }
 
-    public abstract Item getResource();
-
-    // SHOULD NOT DROP MORE THAN REMAINING RESOURCES
-    public abstract int getDropCount(BlockState state);
+    public abstract ItemStack getChiselResource(BlockState state, ServerWorld world, BlockPos pos);
 
 }
