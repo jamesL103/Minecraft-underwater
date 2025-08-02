@@ -8,6 +8,7 @@ import james.underwater.item.BasicFlipper;
 import james.underwater.item.SuperFlipper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
@@ -41,7 +42,10 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(BlockInit.REEDS.asItem().getName().getString(), "Reeds");
         translationBuilder.add(ItemInit.SEAGRASS_BLADES.getName().getString(), "Seagrass Blades");
         translationBuilder.add(ItemInit.PLANT_FIBER.getTranslationKey(), "Plant Fiber");
+
         translationBuilder.add(BlockInit.RAFT_BLOCK.asItem().getName().getString(), "Raft Block");
+
+        translationBuilder.add(BlockInit.SANDSTONE_FLINT_ORE.asItem().getTranslationKey(), "Sandstone Flint Ore");
     }
 
     //helper to make Identifier out of Text and add it to datagen
