@@ -1,5 +1,6 @@
 package james.underwater.providers;
 
+import james.underwater.init.BlockInit;
 import james.underwater.init.ItemInit;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -15,6 +16,7 @@ public class UnderwaterModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.CORAL_GARDEN_SOLID);
     }
 
     @Override

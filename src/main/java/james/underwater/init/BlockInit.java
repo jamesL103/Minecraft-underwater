@@ -58,6 +58,22 @@ public class BlockInit {
 
     public static final Block SANDSTONE_FLINT_ORE = register(SandstoneFlintOre.ID, SandstoneFlintOre::new, AbstractBlock.Settings.create(), REGISTER_ITEM);
 
+    public static final Block CORAL_GARDEN_SOLID = register("coral_garden_solid", Block::new,
+            AbstractBlock.Settings.create()
+                    .solid()
+                    .hardness(1.5f)
+                    .sounds(BlockSoundGroup.CORAL),
+            REGISTER_ITEM
+    );
+
+    public static final Block CORAL_GARDEN = register("coral_garden", Block::new,
+            AbstractBlock.Settings.create()
+                    .solid()
+                    .hardness(1.5f)
+                    .sounds(BlockSoundGroup.CORAL),
+    REGISTER_ITEM
+    );
+
 
     public static void load() {
 
