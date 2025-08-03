@@ -1,0 +1,18 @@
+id: SANDSTONE_FLINT_ORE_FEATURE
+type: FEATURE
+
+distributor:
+  type: "YES"
+
+locator:
+  type: RANDOM
+  amount: 1
+  height:
+    min: 50
+    max: 62
+  salt: 13723
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: SANDSTONE_FLINT_ORE

@@ -12,6 +12,7 @@ addons:
   config-feature: 1.+
   config-distributors: 1.+
   config-locators: 1.+
+  config-ore: 1.+
   biome-provider-single: 1.+
   biome-provider-pipeline-v2: 1.+
   generation-stage-feature: 1.+
@@ -81,6 +82,8 @@ stages:
   - id: preprocessors
     type: FEATURE
   - id: fillTerrain
+    type: FEATURE
+  - id: ores
     type: FEATURE
   - id: flora
     type: FEATURE

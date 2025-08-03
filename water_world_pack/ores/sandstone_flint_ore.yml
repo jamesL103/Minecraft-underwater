@@ -1,0 +1,7 @@
+id: SANDSTONE_FLINT_ORE
+type: ORE
+extends: ABSTRACT_SANDSTONE_ORE
+
+material: underwater:sandstone_flint_ore
+
+size: 3

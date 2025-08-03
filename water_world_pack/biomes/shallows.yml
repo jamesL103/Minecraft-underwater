@@ -1,7 +1,7 @@
 id: SHALLOWS
 type: BIOME
 
-extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING]
+extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING, SANDSTONE_FLINT_ORE_DEFAULT]
 
 vanilla: underwater:warm_ocean
 
