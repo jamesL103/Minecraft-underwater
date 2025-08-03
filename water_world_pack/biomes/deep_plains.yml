@@ -8,7 +8,7 @@ vanilla: minecraft:deep_cold_ocean
 
 vars: &variables
   base: 10
-  groundHeight: 5
+  groundHeight: 4
 
 terrain:
   sampler:
@@ -29,7 +29,7 @@ terrain:
           dimensions: 2
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.03
+            frequency: 0.005
         warp:
           type: OPEN_SIMPLEX_2
           frequency: 0.05
