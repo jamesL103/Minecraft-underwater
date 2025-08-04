@@ -9,6 +9,7 @@ features:
   fillTerrain:
     - PLACE_SAND
   flora:
+    - CORAL_GARDEN_FEATURE
     - SEAGRASS_FEATURE
     - REEDS
   decor:

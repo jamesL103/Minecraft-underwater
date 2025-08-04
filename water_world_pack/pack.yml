@@ -17,6 +17,9 @@ addons:
   biome-provider-pipeline-v2: 1.+
   generation-stage-feature: 1.+
   structure-block-shortcut: 1.+
+  structure-terrascript-loader: 1.+
+  terrascript-function-sampler: 1.+
+  structure-function-check-noise-3d: 1.+
 
 generator: NOISE_3D
 
