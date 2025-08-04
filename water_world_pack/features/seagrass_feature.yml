@@ -5,6 +5,7 @@ distributor:
   type: SAMPLER
   sampler:
     type: POSITIVE_WHITE_NOISE
+    salt: 4894589
   threshold: 0.25
 
 locator:
