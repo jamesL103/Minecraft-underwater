@@ -16,3 +16,5 @@ palette-bottom:
 sand_range:
   min: 20
   max: 66
+
+sea_level: 62

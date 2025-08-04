@@ -5,4 +5,4 @@ abstract: true
 
 ocean:
   palette: BLOCK:minecraft:water
-  level: 62
+  level: $meta.yml:sea_level
