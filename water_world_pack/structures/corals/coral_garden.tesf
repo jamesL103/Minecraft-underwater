@@ -1,9 +1,45 @@
 num radius = randomInt(2) + 1;
+bool embed = false;
+num warp = 3;
+num warpFreq = 2;
+num y = 0;
 
-for (num x = -radius; x < radius; x = x + 1) {
-	for (num z = -radius; z < radius; z = z + 1) {
-		if(pow(x,2) + pow(z,2) < pow(radius,2)) {
-			block(x,0,z, "underwater:coral_garden");
+if (randomInt(2) == 1) {
+	embed = true;
+	y = -1;
+}
+
+
+
+for (num x = -radius - warp; x < radius + warp; x = x + 1) {
+	for (num z = -radius - warp; z < radius + warp; z = z + 1) {
+		num warpX = warp * sampler("simplex3d",
+							warpFreq * (x + originX()),
+							warpFreq * (y + originY() + 1010),
+							warpFreq * (z + originZ()));
+		num warpZ = warp * sampler("simplex3d",
+							warpFreq * (x + originX()),
+							warpFreq * (y + originY() * 2000),
+							warpFreq * (z + originZ()));
+
+		if(pow(x + warpX,2) + pow(z + warpZ,2) < pow(radius,2)) {
+			num plantTypeRand = randomInt(8);
+			str plantBlock = "minecraft:water";
+			if (plantTypeRand < 6) {
+				plantBlock = "minecraft:seagrass";
+			}
+			else if (plantTypeRand < 7) {
+				num coralRand = randomInt(4);
+				if (coralRand == 0) plantBlock = "minecraft:tube_coral";
+				else if (coralRand == 1) plantBlock = "minecraft:brain_coral";
+				else if (coralRand == 2) plantBlock = "minecraft:horn_coral";
+				else if (coralRand == 3) plantBlock = "minecraft:bubble_coral";
+			}
+
+
+			block(x,y,z, "underwater:coral_garden");
+			block(x, y + 1, z, plantBlock);
+			block(x, y -1, z, "underwater:coral_garden_solid");
 		}
 	}
 }

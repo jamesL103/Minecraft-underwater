@@ -16,7 +16,8 @@ locator:
         min: 20
         max: $meta.yml:sea_level
       pattern:
-        type: MATCH_SOLID
+        type: MATCH
+        block: minecraft:sand
         offset: -1
     - type: PATTERN
       range: *range
