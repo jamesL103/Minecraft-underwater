@@ -1,10 +1,7 @@
 package james.underwater.init;
 
 import james.underwater.Underwater;
-import james.underwater.block.CoralPile;
-import james.underwater.block.RaftBlock;
-import james.underwater.block.Rock;
-import james.underwater.block.SandstoneFlintOre;
+import james.underwater.block.*;
 import james.underwater.block.item.RaftBlockItem;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -57,6 +54,8 @@ public class BlockInit {
     public static final Block RAFT_BLOCK = registerRaftBlock();
 
     public static final Block SANDSTONE_FLINT_ORE = register(SandstoneFlintOre.ID, SandstoneFlintOre::new, AbstractBlock.Settings.create(), REGISTER_ITEM);
+    public static final Block SANDSTONE_COPPER_ORE = register(SandstoneCopperOre.ID, SandstoneCopperOre::new, AbstractBlock.Settings.create(), REGISTER_ITEM);
+    public static final Block SANDSTONE_IRON_ORE = register(SandstoneIronOre.ID, SandstoneIronOre::new, AbstractBlock.Settings.create(), REGISTER_ITEM);
 
     public static final Block CORAL_GARDEN_SOLID = register("coral_garden_solid", Block::new,
             AbstractBlock.Settings.create()

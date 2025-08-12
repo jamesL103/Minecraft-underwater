@@ -28,7 +28,7 @@ public class UnderwaterBlockLootProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(BlockInit.REEDS, LootTable.builder().pool(LootPool.builder()
-                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
+                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(3), new ConstantLootNumberProvider(5)))
                 .with(ItemEntry.builder(Items.STICK))
         ));
         addDrop(
@@ -37,6 +37,24 @@ public class UnderwaterBlockLootProvider extends FabricBlockLootTableProvider {
                         LootPool.builder()
                                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(1), new ConstantLootNumberProvider(2)))
                                 .with(ItemEntry.builder(Items.FLINT))
+                                .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Registries.ITEM, ItemInit.STONE_CHISEL)))
+                )
+        );
+        addDrop(
+                BlockInit.SANDSTONE_IRON_ORE,
+                LootTable.builder().pool(
+                        LootPool.builder()
+                                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
+                                .with(ItemEntry.builder(Items.IRON_NUGGET))
+                                .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Registries.ITEM, ItemInit.STONE_CHISEL)))
+                )
+        );
+        addDrop(
+                BlockInit.SANDSTONE_COPPER_ORE,
+                LootTable.builder().pool(
+                        LootPool.builder()
+                                .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
+                                .with(ItemEntry.builder(ItemInit.RAW_COPPER_NUGGET))
                                 .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Registries.ITEM, ItemInit.STONE_CHISEL)))
                 )
         );

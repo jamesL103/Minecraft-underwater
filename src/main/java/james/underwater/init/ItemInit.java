@@ -48,6 +48,8 @@ public class ItemInit {
 
     public static final Item STONE_SPEAR = registerItem(StoneSpear.ID, StoneSpear::new, new Item.Settings());
 
+    public static final Item RAW_COPPER_NUGGET = registerItem("raw_copper_nugget", Item::new, new Item.Settings());
+
     public static final RegistryKey<Item> SEAGRASS_BLADES_KEY = RegistryKey.of(RegistryKeys.ITEM, Underwater.id("seagrass_blades"));
     public static final Item SEAGRASS_BLADES = Registry.register(Registries.ITEM, Underwater.id("seagrass_blades"), new Item(new Item.Settings()
             .registryKey(SEAGRASS_BLADES_KEY)
