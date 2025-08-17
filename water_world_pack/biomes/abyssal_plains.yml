@@ -1,4 +1,4 @@
-id: DEEP_PLAINS
+id: ABYSSAL_PLAINS
 type: BIOME
 
 extends: [BASE, PALETTE_BASIC_OCEAN]

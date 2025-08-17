@@ -78,7 +78,7 @@ biomes:
           frequency: 0.01
         from: deeper
         to:
-          - DEEP_PLAINS: 1
+          - ABYSSAL_PLAINS: 1
 
 
 stages:
