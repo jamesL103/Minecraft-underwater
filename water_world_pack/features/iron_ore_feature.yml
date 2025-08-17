@@ -1,22 +1,22 @@
-id: SANDSTONE_FLINT_ORE_FEATURE
+id: IRON_ORE_FEATURE
 type: FEATURE
 
 distributor:
   type: SAMPLER
   sampler:
     type: POSITIVE_WHITE_NOISE
-    salt: 384848
+    salt: 12434
   threshold: 60 * (1/256)
 
 locator:
   type: RANDOM
   amount: 1
   height:
-    min: 50
+    min: 20
     max: 62
-  salt: 13723
+  salt: 1844
 
 structures:
   distribution:
     type: CONSTANT
-  structures: SANDSTONE_FLINT_ORE
+  structures: IRON_ORE

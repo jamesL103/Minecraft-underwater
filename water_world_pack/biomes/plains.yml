@@ -7,6 +7,8 @@ vanilla: minecraft:deep_ocean
 features:
   preprocessors:
     - FILL_CAVES
+  ores:
+    - IRON_ORE_FEATURE
   flora:
     - SEAGRASS_FEATURE
 

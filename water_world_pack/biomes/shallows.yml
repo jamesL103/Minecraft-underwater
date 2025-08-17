@@ -1,13 +1,16 @@
 id: SHALLOWS
 type: BIOME
 
-extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING, SANDSTONE_FLINT_ORE_DEFAULT]
+extends: [BASE, PALETTE_BASIC_OCEAN, ARCH_CARVING]
 
 vanilla: underwater:warm_ocean
 
 features:
   fillTerrain:
     - PLACE_SAND
+  ores:
+    - SANDSTONE_FLINT_ORE_FEATURE
+    - IRON_ORE_FEATURE
   flora:
     - CORAL_GARDEN_FEATURE
     - SEAGRASS_FEATURE

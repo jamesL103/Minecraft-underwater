@@ -1,7 +1,0 @@
-id: SANDSTONE_FLINT_ORE_DEFAULT
-type: BIOME
-abstract: true
-
-features:
-  ores:
-    - SANDSTONE_FLINT_ORE_FEATURE
