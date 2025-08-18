@@ -14,7 +14,7 @@ carving:
 
       carvingThreshold: 0.55
       carvingMinHeight: 50
-      minHeightVariation: 4
+      minHeightVariation: 2
       carvingMaxHeight: 62
       carvingCap: 1
 
@@ -23,11 +23,11 @@ carving:
 
     expression: # using arches sampler defined in pack.yml
       -carvingThreshold
-      + if(y<(carvingMinHeight + (minHeightVariation * ((minHeightOffset(x,z)/4) - 0.75)))||y>carvingMaxHeight, 0,
+      + if(y< (carvingMinHeight + (minHeightOffset(x,z)))||y>carvingMaxHeight, 0,
         min(carvingCap,
           max(
-            spaghettiStrengthLarge * ((-(|arches(x,y+0000,z)|+|arches(x,y+1000,z)|)/2)+1),
-            spaghettiStrengthSmall * ((-(|arches(x,y+2000,z)|+|arches(x,y+3000,z)|)/2)+1)
+            spaghettiStrengthLarge * ((-(|simplex3d(x,y+0000,z)|+|simplex3d(x,y+1000,z)|)/2)+1),
+            spaghettiStrengthSmall * ((-(|simplex3d(x,y+2000,z)|+|simplex3d(x,y+3000,z)|)/2)+1)
           )
         )
       )
@@ -39,6 +39,7 @@ carving:
         octaves: 3
         sampler:
           type: OPEN_SIMPLEX_2
-          frequency: 0.1
+          salt: 67775
+          frequency: 0.02
 
 

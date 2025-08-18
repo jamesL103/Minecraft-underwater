@@ -107,4 +107,5 @@ samplers:
     octaves: 4
     sampler:
       type: OPEN_SIMPLEX_2
+      salt: 484841
       frequency: 0.0075
