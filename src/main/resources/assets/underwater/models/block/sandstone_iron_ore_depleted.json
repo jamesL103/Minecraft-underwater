@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "underwater:block/sandstone_iron_ore_depleted_bottom",
+    "side": "underwater:block/sandstone_iron_ore_depleted_side",
+    "top": "underwater:block/sandstone_iron_ore_depleted_top"
+  }
+}
