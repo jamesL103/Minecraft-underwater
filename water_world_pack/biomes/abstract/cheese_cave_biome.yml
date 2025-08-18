@@ -1,0 +1,20 @@
+id: CHEESE_CAVE_BIOME
+type: BIOME
+abstract: true
+
+carving:
+  sampler:
+    type: EXPRESSION
+    dimensions: 3
+    variables:
+      carvingThreshold: 0.5
+      carvingMinHeight: 30
+      carvingMaxHeight: 50
+      carvingCap: 1
+      carvingStrength: 0.30
+
+    expression:
+      -carvingThreshold
+      + if(y<carvingMinHeight || y>carvingMaxHeight, 0,
+        ((|simplex3d(x,y,z)|))
+      )

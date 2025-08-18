@@ -1,6 +1,6 @@
 id: PLAINS
 type: BIOME
-extends: [BASE, PALETTE_BASIC_OCEAN]
+extends: [BASE, PALETTE_BASIC_OCEAN, CHEESE_CAVE_BIOME]
 
 vanilla: minecraft:deep_ocean
 
@@ -33,9 +33,10 @@ terrain:
         sampler:
           type: FBM
           dimensions: 2
+          octaves: 2
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.03
+            frequency: 0.02
         warp:
           type: OPEN_SIMPLEX_2
           frequency: 0.05
