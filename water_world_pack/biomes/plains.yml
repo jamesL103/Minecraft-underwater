@@ -7,10 +7,15 @@ vanilla: minecraft:deep_ocean
 features:
   preprocessors:
     - FILL_CAVES
+  fillTerrain:
+    - PLACE_SAND
   ores:
     - IRON_ORE_FEATURE
   flora:
     - SEAGRASS_FEATURE
+
+palette:
+  - SANDSTONE: 319
 
 vars: &variables
   base: 45
