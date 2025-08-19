@@ -25,7 +25,7 @@ generator: NOISE_3D
 
 biomes:
   type: PIPELINE
-  biome: 4
+  resolution: 4
   blend:
     amplitude: 2
     sampler:
@@ -35,7 +35,7 @@ biomes:
     source:
       type: SAMPLER
       biomes:
-        - deeper: 10
+        - deeper: 1
         - deep: 20
         - shallow: 32
       sampler:
@@ -44,19 +44,33 @@ biomes:
         min: -1
         max: -0.3
         sampler:
-          type: DOMAIN_WARP
-          sampler:
-            type: FBM
-            octaves: 3
-            lacunarity: 2
-            gain: 0.4
-            sampler:
-              type: CELLULAR
-              frequency: 0.0008
-          amplitude: 2.0
-          warp:
-            type: OPEN_SIMPLEX_2
-            frequency: 0.02
+          type: EXPRESSION
+          expression: biomePlacement(x,z) + |((originEffect(x,z) - 1)/2)|
+          samplers:
+            biomePlacement:
+              type: DOMAIN_WARP
+              dimensions: 2
+              sampler:
+                type: FBM
+                octaves: 3
+                lacunarity: 2
+                gain: 0.4
+                sampler:
+                  type: CELLULAR
+                  frequency: 0.0008
+              amplitude: 2.0
+              warp:
+                type: OPEN_SIMPLEX_2
+                frequency: 0.02
+            originEffect: #increase value as you get closer to (0,0)
+              dimensions: 2
+              type: DISTANCE
+              distance-function: Euclidean
+              normalize: true
+              radius: 100
+
+
+
     stages:
       - type: REPLACE
         sampler:
