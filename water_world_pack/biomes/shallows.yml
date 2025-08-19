@@ -23,7 +23,7 @@ palette:
 
 vars: &variables
   base: 50 #base y level
-  groundHeight: 7 #block height of ground variation
+  groundHeight: 8 #block height of ground variation
   hillHeight: 7
 
 terrain:
@@ -63,6 +63,7 @@ terrain:
             frequency: 0.01
           sampler:
             type: OPEN_SIMPLEX_2
+            salt: 782781
             frequency: 0.05
       hillHeightVar:
         type: FBM
