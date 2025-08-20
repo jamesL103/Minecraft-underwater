@@ -31,6 +31,12 @@ public class UnderwaterBlockLootProvider extends FabricBlockLootTableProvider {
                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(3), new ConstantLootNumberProvider(5)))
                 .with(ItemEntry.builder(Items.STICK))
         ));
+        addDrop(BlockInit.CAVE_ROOTS, LootTable.builder().pool(
+                LootPool.builder()
+                        .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(3), new ConstantLootNumberProvider(5)))
+                        .with(ItemEntry.builder(Items.STICK))
+        ));
+
         addDrop(
                 BlockInit.SANDSTONE_FLINT_ORE,
                 LootTable.builder().pool(
@@ -45,7 +51,7 @@ public class UnderwaterBlockLootProvider extends FabricBlockLootTableProvider {
                 LootTable.builder().pool(
                         LootPool.builder()
                                 .rolls(new UniformLootNumberProvider(new ConstantLootNumberProvider(2), new ConstantLootNumberProvider(4)))
-                                .with(ItemEntry.builder(Items.IRON_NUGGET))
+                                .with(ItemEntry.builder(ItemInit.IRON_CHUNK))
                                 .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Registries.ITEM, ItemInit.STONE_CHISEL)))
                 )
         );
