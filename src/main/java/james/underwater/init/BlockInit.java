@@ -50,6 +50,7 @@ public class BlockInit {
                     .sounds(BlockSoundGroup.GRASS),
             REGISTER_ITEM
     );
+    public static final Block CAVE_ROOTS = register(CaveRoots.ID, CaveRoots::new, AbstractBlock.Settings.create(), REGISTER_ITEM);
 
     public static final Block RAFT_BLOCK = registerRaftBlock();
 

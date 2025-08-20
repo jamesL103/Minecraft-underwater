@@ -8,7 +8,6 @@ import james.underwater.item.BasicFlipper;
 import james.underwater.item.SuperFlipper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
@@ -40,6 +39,7 @@ public class UnderwaterEnglishLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add(BlockInit.CORAL_PILE.asItem().getName().getString(), "Dead Coral Pile");
         translationBuilder.add(BlockInit.REEDS.asItem().getName().getString(), "Reeds");
+        translationBuilder.add(BlockInit.CAVE_ROOTS.asItem().getTranslationKey(), "Cave Roots");
         translationBuilder.add(ItemInit.SEAGRASS_BLADES.getName().getString(), "Seagrass Blades");
         translationBuilder.add(ItemInit.PLANT_FIBER.getTranslationKey(), "Plant Fiber");
 
