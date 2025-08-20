@@ -4,9 +4,9 @@ import james.underwater.init.BlockInit;
 import james.underwater.init.ItemInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancement.criterion.TickCriterion;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -40,6 +40,12 @@ public class UnderwaterRecipeProvider extends FabricRecipeProvider {
                         .pattern("ss")
                         .input('s', Items.STICK)
                         .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                        .offerTo(recipeExporter);
+
+                createShapeless(RecipeCategory.TOOLS, Items.FLINT_AND_STEEL)
+                        .input(ItemInit.IRON_CHUNK)
+                        .input(Items.FLINT)
+                        .criterion("unlock_immediate", TickCriterion.Conditions.createTick())
                         .offerTo(recipeExporter);
                 createShaped(RecipeCategory.TOOLS, ItemInit.STONE_CHISEL, 1)
                         .pattern("fr")
