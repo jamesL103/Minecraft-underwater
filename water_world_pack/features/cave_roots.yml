@@ -1,0 +1,32 @@
+id: CAVE_ROOTS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  padding: 2
+  width: 5
+  salt: 1934
+
+locator:
+  type: AND
+  range: &range
+    min: 20
+    max: 62
+  locators:
+    - type: PATTERN
+      pattern:
+        type: MATCH
+        block: minecraft:sandstone
+        offset: 1
+      range: *range
+    - type: PATTERN
+      pattern:
+        type: MATCH
+        block: minecraft:water
+        offset: 0
+      range: *range
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: cave_roots

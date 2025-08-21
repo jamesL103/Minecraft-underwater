@@ -1,0 +1,19 @@
+num direction = randomInt(4); //0 = positive x, 1 = positive z, 2 = negative x, 3 = negative z
+
+num x = 0;
+num y = 0;
+num z = 0;
+
+str currState = check(0, 0, 0);
+//print((x + originX()) + "," + (y + originY()) +"," + (z + originZ()));
+
+print(check(0,-1,0));
+block(x,y,z,"underwater:cave_roots");
+y = y - 1;
+currState = check(0,y,0);
+
+while (currState != "LAND") {
+	block(x,y,z,"underwater:cave_roots");
+    y = y - 1;
+    currState = check(x,y,z);
+}

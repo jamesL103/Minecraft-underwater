@@ -11,8 +11,8 @@ public class CaveRoots extends Block {
     public CaveRoots(Settings settings) {
         super(settings
                 .sounds(BlockSoundGroup.CAVE_VINES)
-                .noCollision()
                 .hardness(0.2f)
+                .solid()
         );
     }
 
