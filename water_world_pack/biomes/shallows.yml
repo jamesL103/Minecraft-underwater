@@ -12,10 +12,10 @@ features:
     - SANDSTONE_FLINT_ORE_FEATURE
     - IRON_ORE_FEATURE
   flora:
-    - CAVE_ROOTS
     - CORAL_GARDEN_FEATURE
     - SEAGRASS_FEATURE
     - REEDS
+    - CAVE_ROOTS
   decor:
     - PLACE_ROCKS
 

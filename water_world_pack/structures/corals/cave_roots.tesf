@@ -4,16 +4,17 @@ num x = 0;
 num y = 0;
 num z = 0;
 
-str currState = check(0, 0, 0);
-//print((x + originX()) + "," + (y + originY()) +"," + (z + originZ()));
+str currState = check(0, 5, 0);
+print((x + originX()) + "," + (y - 1 + originY()) +"," + (z + originZ()));
 
-print(check(0,-1,0));
 block(x,y,z,"underwater:cave_roots");
 y = y - 1;
-currState = check(0,y,0);
 
-while (currState != "LAND") {
+str currBlock = getBlock(x,y,z);
+
+print(currBlock);
+while (currBlock == "minecraft:water" || currBlock == "minecraft:seagrass") { //this is fucking stupid
 	block(x,y,z,"underwater:cave_roots");
     y = y - 1;
-    currState = check(x,y,z);
+    currBlock = getBlock(x,y,z);
 }
