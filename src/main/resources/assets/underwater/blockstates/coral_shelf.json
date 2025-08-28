@@ -1,0 +1,17 @@
+{
+  "variants" : {
+    "facing=north": {
+      "model": "underwater:block/coral_shelf_north"
+    },
+    "facing=east": {
+      "model": "underwater:block/coral_shelf_north"
+    },
+    "facing=south": {
+      "model": "underwater:block/coral_shelf_north"
+    },
+    "facing=west": {
+      "model": "underwater:block/coral_shelf_north"
+    }
+  }
+
+}

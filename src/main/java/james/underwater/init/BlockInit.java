@@ -71,7 +71,12 @@ public class BlockInit {
                     .solid()
                     .hardness(1.5f)
                     .sounds(BlockSoundGroup.CORAL),
-    REGISTER_ITEM
+            REGISTER_ITEM
+    );
+
+    public static final Block CORAL_SHELF = register(CoralShelf.ID, CoralShelf::new,
+            AbstractBlock.Settings.create(),
+            REGISTER_ITEM
     );
 
 
